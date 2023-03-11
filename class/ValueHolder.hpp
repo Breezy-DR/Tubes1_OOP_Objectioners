@@ -12,7 +12,7 @@ private:
 public:
     ValueHolder();
     ~ValueHolder();
-    virtual void value();
+    virtual ValueHolder& value();
 };
 
 
