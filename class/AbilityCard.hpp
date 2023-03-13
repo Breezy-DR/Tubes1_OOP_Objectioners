@@ -12,7 +12,7 @@ private:
     Ability *ability;
     bool isUsed;
 public:
-    void useCard(){ this->ability->executeAction();}
+    void useCard(){ this->ability->useAbility();}
 };
 
 #endif //TUBES1_OOP_OBJECTIONERS_ABILITYCARD_HPP
