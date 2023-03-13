@@ -1,3 +1,5 @@
 #include "MainCard.hpp"
 
-MainCard::MainCard() {}
+MainCard::MainCard() {
+    
+}
