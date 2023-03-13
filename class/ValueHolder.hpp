@@ -7,12 +7,14 @@ using namespace std;
 
 class ValueHolder
 {
-private:
-    /* data */
+protected:
+    int val;
 public:
     ValueHolder();
+    ValueHolder(int);
+    ValueHolder(const ValueHolder&);
     ~ValueHolder();
-    virtual ValueHolder& value();
+    virtual int value();
 };
 
 

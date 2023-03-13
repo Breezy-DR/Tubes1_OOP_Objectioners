@@ -1,15 +1,16 @@
 #ifndef _MAINCARD_HPP_
 #define _MAINCARD_HPP_
 
+#include "Card.hpp"
 #include <iostream>
+#include <utility>
 #include <string>
 using namespace std;
 
-class MainCard
+class MainCard : public Card
 {
 private:
-    string color;
-    int number;
+    pair<int, int> oneCard;
 public:
     MainCard();
     MainCard(int _color, int _number);
