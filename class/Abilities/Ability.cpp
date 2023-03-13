@@ -2,8 +2,8 @@
 
 
 Ability::Ability() {
-    this->abilityName="";
-    this->description="";
+    this->abilityName = "";
+    this->description = "";
 }
 
 Ability::Ability(string abilityName, string description) {
