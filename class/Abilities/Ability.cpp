@@ -4,11 +4,13 @@
 Ability::Ability() {
     this->abilityName = "";
     this->description = "";
+    this->disabled = false;
 }
 
 Ability::Ability(string abilityName, string description) {
     this->abilityName = abilityName;
     this->description = description;
+    this->disabled = false;
 }
 
 void Ability::setAbilityName(string abilityName) {
