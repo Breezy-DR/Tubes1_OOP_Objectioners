@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "Card.hpp"
 using namespace std;
 
 class InventoryHolder
