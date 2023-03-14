@@ -21,3 +21,15 @@ void Combo::setCombo(int comboNum) {
 int Combo::value() {
     return this->val;
 }
+
+bool Combo::operator<(const Combo& c2) {
+    return (this->comboNum < c2.comboNum);
+}
+
+bool Combo::operator>(const Combo& c2) {
+    return (this->comboNum > c2.comboNum);
+}
+
+bool Combo::operator==(const Combo& c2) {
+    return (this->comboNum == c2.comboNum);
+}

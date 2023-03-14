@@ -7,6 +7,8 @@
 #include <string>
 using namespace std;
 
+enum Colors {Green = 0, Blue = 1, Yellow = 2, Red = 3};
+
 class MainCard : public Card
 {
 private:

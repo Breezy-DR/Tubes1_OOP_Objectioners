@@ -4,7 +4,7 @@ MainCard::MainCard() : Card() {
     this->oneCard = make_pair(0, 0);
 }
 
-MainCard::MainCard(int _color, int _number, int _holder) : Card(_number, _holder) {
+MainCard::MainCard(int _color, int _number, int _holder) : Card(_holder) {
     this->oneCard = make_pair(_color, _number);
 }
 

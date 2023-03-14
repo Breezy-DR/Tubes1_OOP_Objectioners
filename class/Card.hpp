@@ -15,7 +15,7 @@ protected:
 public:
     Card();
 
-    Card(int _val, int holder);
+    Card(int holder);
 
     virtual ~Card();
 

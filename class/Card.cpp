@@ -5,7 +5,7 @@ Card::Card() : ValueHolder() {
     holder = None;
 }
 
-Card::Card(int _val, int holder) : ValueHolder(_val) {
+Card::Card(int holder) : ValueHolder() {
     this->holder = holder;
 }
 
