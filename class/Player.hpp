@@ -18,10 +18,13 @@ private:
     bool isCanUseAbility;
     long long int score;
 public:
-    Player(int id,string playerName){ this->ID=id;
+    Player(int id,string playerName){ 
+        this->ID=id;
         this->playerName=playerName;
         this->isCanUseAbility= false;
-        this->score=64;}
+        this->score=64;
+    }
+
     void setPlayerCard(PlayerCard playerCard){ this->playerCard=playerCard;}
     void setCanUseAbility(bool isCanUse){ this->isCanUseAbility=isCanUse;}
     int getPlayerId(){return this->ID;}
@@ -31,6 +34,7 @@ public:
     long long int getScore(){return this->score;}
     void showPlayerStatus(){
         cout<<"ID: "<< this->ID<<"\nName: "<< this->playerName<<"\nNormal card:\n";
+
 
         for (int i = 0; i < this->getPlayerCard().getMainPlayerCard().size(); ++i) {
             cout<< i+1<<"."<< this->getPlayerCard().getMainPlayerCard()[i]<<"\n";

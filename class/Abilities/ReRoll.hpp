@@ -7,6 +7,7 @@ class ReRoll : public Ability {
 private:
 public:
     ReRoll();
+    ReRoll(int);
     void useAbility();
 };
 

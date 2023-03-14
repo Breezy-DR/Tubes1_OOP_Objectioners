@@ -1,7 +1,7 @@
 #ifndef _MAINCARD_HPP_
 #define _MAINCARD_HPP_
 
-#include "Card.hpp"
+#include "Card.cpp"
 #include <iostream>
 #include <utility>
 #include <string>
@@ -15,7 +15,7 @@ private:
     pair<int, int> oneCard;
 public:
     MainCard();
-    MainCard(int _color, int _number, int _holder);
+    MainCard(int _color, int _number);
     ~MainCard();
 
     int getColor() const;

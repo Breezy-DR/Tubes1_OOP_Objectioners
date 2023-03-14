@@ -7,6 +7,7 @@ class Switch : public Ability {
 private:
 public:
     Switch();
+    Switch(int);
     void useAbility();
 };
 

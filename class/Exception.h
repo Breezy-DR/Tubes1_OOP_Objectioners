@@ -1,7 +1,7 @@
 #ifndef __PLAYEXCEPTION_H__
 #define __PLAYEXCEPTION_H__
 
-#include<exception>
+#include <exception>
 using namespace std;
 
 
@@ -11,5 +11,10 @@ struct KartuDisabledException : public exception  {
 	}
 };
 
+struct InvalidCommandException : public exception  {
+	const char* what() const throw() {
+		return "Perintah invalid! Silahkan coba lagi!";
+	}
+};
 
 #endif

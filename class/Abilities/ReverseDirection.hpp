@@ -7,6 +7,7 @@ class ReverseDirection : public Ability {
 private:
 public:
     ReverseDirection();
+    ReverseDirection(int);
     void useAbility();
 };
 

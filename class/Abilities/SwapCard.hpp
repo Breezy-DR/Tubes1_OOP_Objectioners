@@ -7,6 +7,7 @@ class SwapCard : public Ability {
 private:
 public:
     SwapCard();
+    SwapCard(int);
     void useAbility();
 };
 

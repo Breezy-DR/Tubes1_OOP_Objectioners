@@ -7,7 +7,7 @@ Ability::Ability() {
     this->disabled = false;
 }
 
-Ability::Ability(string abilityName, string description) {
+Ability::Ability(string abilityName, string description, int holder) : Card(holder) {
     this->abilityName = abilityName;
     this->description = description;
     this->disabled = false;
@@ -27,4 +27,11 @@ string Ability::getAbilityName() {
 
 string Ability::getDescription() {
     return this->description;
+}
+
+ostream &operator<<(ostream &os, Ability& ac) {
+    os << "Holder       : " << ac.getHolder() << endl;
+    os << "Ability name : " << ac.getAbilityName() << endl;
+    os << "Description  : " << ac.getDescription() << endl;
+    return os;
 }
