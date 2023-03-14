@@ -7,14 +7,14 @@
 class TableCard : public InventoryHolder
 {
 private:
-    vector<Card *> MainTableCard;
+    vector<MainCard> MainTableCard;
 
 public:
     TableCard();
     TableCard(const TableCard &);
     ~TableCard();
-    vector<Card *> getMainTableCard();
-    void showTableCard();
+    vector<MainCard> getMainTableCard();
+    void showCards()=0;
 };
 
 #endif

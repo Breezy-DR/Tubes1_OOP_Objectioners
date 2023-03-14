@@ -13,7 +13,6 @@ public:
     MainDeck();
     MainDeck(string filepath);
     ~MainDeck();
-
     int getSize();
     MainCard draw();
     

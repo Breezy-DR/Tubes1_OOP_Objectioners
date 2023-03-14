@@ -6,7 +6,7 @@
 class Abilityless : public Ability {
 private:
 public:
-    Abilityless();
+//    Abilityless();
     void useAbility();
 };
 

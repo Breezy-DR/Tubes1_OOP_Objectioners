@@ -8,13 +8,13 @@ using namespace std;
 class ValueHolder
 {
 protected:
-    int val;
+//    int val;
 public:
-    ValueHolder();
-    ValueHolder(int);
-    ValueHolder(const ValueHolder&);
-    ~ValueHolder();
-    virtual int value();
+//    ValueHolder();
+//    ValueHolder(int);
+//    ValueHolder(const ValueHolder&);
+//    ~ValueHolder();
+    virtual float value()=0;
 };
 
 

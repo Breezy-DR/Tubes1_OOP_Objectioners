@@ -7,8 +7,8 @@
 #include "Player.hpp"
 class Command{
 public:
-    Command(){}
-    void NEXT(){}
+//    Command(){}
+//    void NEXT(){}
     void REROLL(){}
     void DOUBLE(){}
     void QUADRUPLE(){}

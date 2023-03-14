@@ -9,7 +9,7 @@ class Ability {
 protected:
     string abilityName;
     string description;
-    bool disabled;
+//    bool disabled;
 public:
     Ability();
     Ability(string, string);
