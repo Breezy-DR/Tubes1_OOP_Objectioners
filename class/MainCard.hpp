@@ -15,7 +15,7 @@ private:
     pair<int, int> oneCard;
 public:
     MainCard();
-    MainCard(int _color, int _number, int _holder);
+    MainCard(int _color, int _number);
     ~MainCard();
 
     int getColor() const;
