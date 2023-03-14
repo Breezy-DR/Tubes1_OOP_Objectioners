@@ -1,16 +1,14 @@
-//
-// Created by suisei on 3/12/23.
-//
-
-#ifndef TUBES1_OOP_OBJECTIONERS_QUADRUPLE_HPP
-#define TUBES1_OOP_OBJECTIONERS_QUADRUPLE_HPP
+#ifndef __QUADRUPLE_HPP__
+#define __QUADRUPLE_HPP__
 #include "Ability.hpp"
 
 
-class Quadruple:public Ability{
+class Quadruple : public Ability{
 private:
 public:
-    void executeAction(){}
+    Quadruple();
+    void useAbility();
 };
 
-#endif //TUBES1_OOP_OBJECTIONERS_QUADRUPLE_HPP
+
+#endif

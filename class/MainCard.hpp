@@ -13,11 +13,10 @@ private:
     pair<int, int> oneCard;
 public:
     MainCard();
-    MainCard(int _color, int _number);
-    MainCard(const MainCard &mc);
+    MainCard(int _color, int _number, int _holder);
     ~MainCard();
 
-    string getColor() const;
+    int getColor() const;
     int getNumber() const;
     friend ostream &operator<<(ostream &os, MainCard mc);
 };

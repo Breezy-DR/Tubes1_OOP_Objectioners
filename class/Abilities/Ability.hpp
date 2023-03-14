@@ -1,20 +1,24 @@
-#ifndef ABILITY_HPP
-#define ABILITY_HPP
+#ifndef __ABILITY_HPP__
+#define __ABILITY_HPP__
 #include <string>
+#include "../Exception.h"
 using namespace std;
 
-class Ability{
+
+class Ability {
 protected:
     string abilityName;
     string description;
+    bool disabled;
 public:
-    Ability(){ this->abilityName="";
-        this->description=""}
-    string getAbilityName(){return this->abilityName;}
-    string getDescription(){return this->description;}
-    void setAbilityName(string abilityName){ this->abilityName=abilityName;}
-    void setDescription(string description){ this->description=description;}
-    virtual void executeAction()=0;
-}
+    Ability();
+    Ability(string, string);
+    void setAbilityName(string);
+    void setDescription(string);
+    string getAbilityName();
+    string getDescription();
+    virtual void useAbility() = 0;
+};
+
 
 #endif

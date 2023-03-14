@@ -4,7 +4,7 @@
 #include "InventoryHolder.hpp"
 #include <vector>
 
-class PlayerCard
+class PlayerCard : public InventoryHolder
 {
 private:
     vector<Card *> MainPlayerCard;

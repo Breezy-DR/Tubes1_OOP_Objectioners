@@ -1,15 +1,14 @@
-//
-// Created by suisei on 3/12/23.
-//
-
-#ifndef TUBES1_OOP_OBJECTIONERS_REROLL_HPP
-#define TUBES1_OOP_OBJECTIONERS_REROLL_HPP
+#ifndef __REROLL_HPP__
+#define __REROLL_HPP__
 #include "Ability.hpp"
 
-class Reroll:public Ability{
+
+class ReRoll : public Ability {
 private:
 public:
-    void executeAction(){}
+    ReRoll();
+    void useAbility();
 };
 
-#endif //TUBES1_OOP_OBJECTIONERS_REROLL_HPP
+
+#endif

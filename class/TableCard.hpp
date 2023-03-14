@@ -4,7 +4,7 @@
 #include "InventoryHolder.hpp"
 #include <vector>
 
-class TableCard
+class TableCard : public InventoryHolder
 {
 private:
     vector<Card *> MainTableCard;
@@ -14,6 +14,7 @@ public:
     TableCard(const TableCard &);
     ~TableCard();
     vector<Card *> getMainTableCard();
+    void showTableCard();
 };
 
 #endif
