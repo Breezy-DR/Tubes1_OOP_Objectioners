@@ -8,6 +8,7 @@ private:
     /* data */
 public:
     Quarter();
+    Quarter(int);
     void useAbility();
 };
 

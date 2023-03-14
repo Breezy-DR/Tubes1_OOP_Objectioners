@@ -7,6 +7,7 @@ class Quadruple : public Ability{
 private:
 public:
     Quadruple();
+    Quadruple(int);
     void useAbility();
 };
 
