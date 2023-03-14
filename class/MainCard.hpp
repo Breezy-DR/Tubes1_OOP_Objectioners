@@ -1,7 +1,7 @@
 #ifndef _MAINCARD_HPP_
 #define _MAINCARD_HPP_
 
-#include "Card.hpp"
+#include "Card.cpp"
 #include <iostream>
 #include <utility>
 #include <string>

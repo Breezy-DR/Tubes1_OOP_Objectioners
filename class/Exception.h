@@ -11,5 +11,10 @@ struct KartuDisabledException : public exception  {
 	}
 };
 
+struct InvalidCommandException : public exception  {
+	const char* what() const throw() {
+		return "Perintah invalid! Silahkan coba lagi!";
+	}
+};
 
 #endif

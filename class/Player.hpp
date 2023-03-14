@@ -17,9 +17,11 @@ private:
     PlayerCard playerCard;
     bool isCanUseAbility;
 public:
-    Player(int id,string playerName){ this->ID=id;
+    Player(int id,string playerName){ 
+        this->ID=id;
         this->playerName=playerName;
-        this->isCanUseAbility= false;}
+        this->isCanUseAbility= false;
+    }
     void setPlayerCard(PlayerCard playerCard){ this->playerCard=playerCard;}
     void setCanUseAbility(bool isCanUse){ this->isCanUseAbility=isCanUse;}
     int getPlayerId(){return this->ID;}
@@ -29,7 +31,7 @@ public:
         cout<<"ID: "<< this->ID<<"\nName: "<< this->playerName<<"\nNormal card:\n";
 
         for (int i = 0; i < this->playerCard.getMainPlayerCard().size(); ++i) {
-            cout<<""
+            //cout<<""
         }
     }
 
