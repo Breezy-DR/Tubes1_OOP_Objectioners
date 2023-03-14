@@ -23,7 +23,7 @@ public:
 
     void setHolder(int holder);
 
-    int value();
+    virtual int value()=0;
 };
 
 #endif //TUBES1_OOP_OBJECTIONERS_CARD_HPP

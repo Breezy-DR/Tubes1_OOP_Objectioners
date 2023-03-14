@@ -24,3 +24,19 @@ ostream &operator<<(ostream &os, MainCard mc) {
     os << "Number   : " << mc.getNumber() << endl;
     return os;
 }
+
+bool MainCard::operator>(MainCard other) {
+    return this->value()>other.value();
+}
+
+bool MainCard::operator<(MainCard other) {
+    return this->value()<other.value();
+}
+
+bool MainCard::operator==(MainCard other) {
+    return this->value()==other.value();
+}
+
+float MainCard::value() {
+    return (float )this->getNumber()*0.1+ this->getColor()*0.03;
+}

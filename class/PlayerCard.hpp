@@ -15,7 +15,8 @@ public:
     PlayerCard(const PlayerCard &);
     ~PlayerCard();
     vector<Card *> getMainPlayerCard();
-    void showPlayerCard();
+    Card* getAbilityCard();
+    void showCards();
 };
 
 #endif

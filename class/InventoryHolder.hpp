@@ -1,9 +1,10 @@
-#ifndef INVENTORYHOLDDER_HPP
+#ifndef INVENTORYHOLDER_HPP
 #define INVENTORYHOLDER_HPP
 
 #include <iostream>
 #include <string>
-#include "Card.hpp"
+#include "MainCard.hpp"
+#include "AbilityCard.hpp"
 using namespace std;
 
 class InventoryHolder
@@ -13,6 +14,8 @@ public:
     InventoryHolder();
     InventoryHolder(const InventoryHolder &);
     virtual ~InventoryHolder();
+    virtual void showCards()=0;
+
 };
 
 #endif

@@ -7,6 +7,8 @@
 #include "Player.hpp"
 #include <vector>
 #include <string>
+
+    
 #include "Exception.h"
 using namespace std;
 
@@ -141,8 +143,17 @@ public:
 
     int getCurrentPlayer(int turn, vector<int> robinstate){
         return robinstate[turn];        
+
+    }
+    bool checkPlayersScore(){
+        for (int i = 0; i < this->getPlayers().size(); ++i) {
+            if(this->getPlayers()[i].getScore()> (2<<32)){
+                return true;
+            }
+        }
+        return false;
     }
 };
 
-
+int Game::roundCount=0;
 #endif //TUBES1_OOP_OBJECTIONERS_GAME_HPP

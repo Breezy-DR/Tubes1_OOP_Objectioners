@@ -11,7 +11,7 @@ class Ability : public Card {
 protected:
     string abilityName;
     string description;
-    bool disabled;
+//    bool disabled;
 public:
     Ability();
     Ability(string, string, int);

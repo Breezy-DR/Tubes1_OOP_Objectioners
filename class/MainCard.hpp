@@ -21,6 +21,10 @@ public:
     int getColor() const;
     int getNumber() const;
     friend ostream &operator<<(ostream &os, MainCard mc);
+    bool operator>(MainCard);
+    bool operator<(MainCard);
+    bool operator==(MainCard);
+    float value();
 };
 
 

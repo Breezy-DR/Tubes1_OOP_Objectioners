@@ -18,7 +18,3 @@ int Card::getHolder(){
 void Card::setHolder(int holder){
     this->holder = holder;
 }
-
-int Card::value() {
-    return this->val;
-}
