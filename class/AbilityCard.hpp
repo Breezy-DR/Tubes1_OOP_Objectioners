@@ -19,7 +19,7 @@ public:
         this->isUsed = false;
     }
     AbilityCard(int _holder, string _abilityname, string _abilitydescription) :
-        Card(_holder), Ability(_abilityname, _abilitydescription) {
+        Card(0, _holder), Ability(_abilityname, _abilitydescription) {
             this->isUsed = false;
         }
     ~AbilityCard() {}

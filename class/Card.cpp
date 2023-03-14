@@ -1,11 +1,11 @@
 #include "Card.hpp"
 #include <iostream>
 
-Card::Card(){
+Card::Card() : ValueHolder() {
     holder = None;
 }
 
-Card::Card(int holder){
+Card::Card(int _val, int holder) : ValueHolder(_val) {
     this->holder = holder;
 }
 
@@ -17,4 +17,8 @@ int Card::getHolder(){
 
 void Card::setHolder(int holder){
     this->holder = holder;
+}
+
+int Card::value() {
+    return this->val;
 }
