@@ -13,8 +13,11 @@ public:
     TableCard();
     TableCard(const TableCard &);
     ~TableCard();
-    vector<Card *> getMainTableCard();
-    void showTableCard();
+    vector<MainCard> getMainTableCard();
+    void showCards();
+    vector<MainCard> operator+(MainCard);
+    friend vector<MainCard> operator+(TableCard&,MainCard);
+    TableCard& operator=(const TableCard&);
 };
 
 #endif
