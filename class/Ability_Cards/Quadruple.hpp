@@ -1,9 +1,9 @@
 #ifndef __QUADRUPLE_HPP__
 #define __QUADRUPLE_HPP__
-#include "Ability.hpp"
+#include "AbilityCard.hpp"
 
 
-class Quadruple : public Ability{
+class Quadruple : public AbilityCard {
 private:
 public:
     Quadruple();

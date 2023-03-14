@@ -1,9 +1,9 @@
 #ifndef __SWITCH_HPP__
 #define __SWITCH_HPP__
-#include "Ability.hpp"
+#include "AbilityCard.hpp"
 
 
-class Switch : public Ability {
+class Switch : public AbilityCard {
 private:
 public:
     Switch();

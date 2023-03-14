@@ -1,9 +1,9 @@
 #ifndef __REROLL_HPP__
 #define __REROLL_HPP__
-#include "Ability.hpp"
+#include "AbilityCard.hpp"
 
 
-class ReRoll : public Ability {
+class ReRoll : public AbilityCard {
 private:
 public:
     ReRoll();

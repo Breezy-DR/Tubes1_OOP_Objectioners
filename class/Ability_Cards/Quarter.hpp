@@ -1,11 +1,10 @@
 #ifndef __Quarter_HPP__
 #define __Quarter_HPP__
-#include "Ability.hpp"
+#include "AbilityCard.hpp"
 
 
-class Quarter : public Ability {
+class Quarter : public AbilityCard {
 private:
-    /* data */
 public:
     Quarter();
     Quarter(int);

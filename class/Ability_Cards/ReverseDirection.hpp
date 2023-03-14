@@ -1,9 +1,9 @@
 #ifndef __REVERSEDIRECTION_HPP__
 #define __REVERSEDIRECTION_HPP__
-#include "Ability.hpp"
+#include "AbilityCard.hpp"
 
 
-class ReverseDirection : public Ability {
+class ReverseDirection : public AbilityCard {
 private:
 public:
     ReverseDirection();

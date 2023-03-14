@@ -1,9 +1,9 @@
 #ifndef __SWAPCARD_HPP__
 #define __SWAPCARD_HPP__
-#include "Ability.hpp"
+#include "AbilityCard.hpp"
 
 
-class SwapCard : public Ability {
+class SwapCard : public AbilityCard {
 private:
 public:
     SwapCard();

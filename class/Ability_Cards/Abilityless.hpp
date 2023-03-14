@@ -1,9 +1,9 @@
 #ifndef __ABILITYLESS_HPP__
 #define __ABILITYLESS_HPP__
-#include "Ability.hpp"
+#include "AbilityCard.hpp"
 
 
-class Abilityless : public Ability {
+class Abilityless : public AbilityCard {
 private:
 public:
     Abilityless();
