@@ -34,6 +34,7 @@ public:
         roundCount = 0;
         gameCount = 0;
         turnCount = 0;
+        poolPrize = 64;
         reversed = false;
     }
 
@@ -47,6 +48,18 @@ public:
 
     void setMainDeck(string filename){
         mainDeck = MainDeck(filename);
+    }
+
+    void setPoolPrize(long long int prize){
+        poolPrize = prize;
+    }
+
+    void toggleReverse(){
+        if(reversed){
+            reversed = false;
+        }else{
+            reversed = true;
+        }
     }
 
 
@@ -225,6 +238,7 @@ public:
 int Game::roundCount=0;
 int Game::turnCount=0;
 int Game::gameCount=0;
+long long int Game::poolPrize = 0;
 bool Game::reversed=false;
 vector<Player> Game::players;
 vector<Player> Game::Turns;
