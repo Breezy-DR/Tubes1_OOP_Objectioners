@@ -19,11 +19,6 @@ void TableCard::showCards()
     cout << "\n";
 }
 
-vector<MainCard> TableCard::getMainCard() const
-{
-    return this->mainCard;
-}
-
 TableCard TableCard::operator+(MainCard mc)
 {
     TableCard tc;

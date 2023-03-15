@@ -17,7 +17,7 @@ public:
     InventoryHolder(const InventoryHolder &) {}
     virtual ~InventoryHolder() {}
     virtual void showCards() = 0;
-    virtual vector<MainCard> getMainCard() const = 0;
+    vector<MainCard> getMainCard() const;
 };
 
 #endif

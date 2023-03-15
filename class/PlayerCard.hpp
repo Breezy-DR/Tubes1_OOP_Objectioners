@@ -13,7 +13,6 @@ public:
     PlayerCard();
     PlayerCard(const PlayerCard &);
     ~PlayerCard();
-    vector<MainCard> getMainCard() const;
     AbilityCard *getAbilityCard();
     void showCards();
     PlayerCard operator+(MainCard mc);

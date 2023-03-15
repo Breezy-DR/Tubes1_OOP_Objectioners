@@ -13,11 +13,6 @@ PlayerCard::PlayerCard(const PlayerCard &pc)
     }
 }
 
-vector<MainCard> PlayerCard::getMainCard() const
-{
-    return this->mainCard;
-}
-
 AbilityCard *PlayerCard::getAbilityCard()
 {
     return this->abilityCard;
