@@ -15,17 +15,44 @@ enum Combos {None = 0, HighCard = 1, Pair = 2, TwoPair = 3,
 
 class Combo : public ValueHolder {
     protected:
-        int comboNum;
+//        int comboNum;
+        TableCard tableCard;
+        PlayerCard playerCard;
+        vector<MainCard> cardPool;
     public:
         Combo();
-        Combo(int _val, int _comboNum);
+//        Combo(int _val, int _comboNum);
+        Combo(TableCard,PlayerCard);
         ~Combo();
         int getCombo();
         void setCombo(int comboNum);
-        int value();
+        float value();
+
+        vector<MainCard> getCardPool;
+        TableCard getTableCard();
+        PlayerCard getPlayerCard();
+
         bool operator<(const Combo& c2);
         bool operator>(const Combo& c2);
         bool operator==(const Combo& c2);
+        bool checkStraightFlush();
+        bool checkFourOfKind();
+        bool checkFullHouse();
+        bool checkFlush();
+        bool checkStraight();
+        bool checkThreeOfKind();
+        bool checkTwoPair();
+        bool checkPair();
+        float getHighCard();
+        float getStraightCard();
+        float getPair();
+        float getThreeOfKind();
+        float getTwoPair();
+        float getFlush();
+        float getFullHouse();
+        float getFourOfKind();
+        float getStraightFlush();
+
 };
 
 

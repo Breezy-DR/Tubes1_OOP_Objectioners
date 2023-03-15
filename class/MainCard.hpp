@@ -16,6 +16,7 @@ private:
 public:
     MainCard();
     MainCard(int _color, int _number);
+    MainCard(const MainCard&);
     ~MainCard();
 
     int getColor() const;
