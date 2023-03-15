@@ -14,14 +14,14 @@ using namespace std;
 
 class Game{
 private:
-    vector<Player> players;
-    vector<Player> Turns;
-    bool reversed;
+    static vector<Player> players;
+    static vector<Player> Turns;
+    static bool reversed;
 
     int startingPlayerID;
-    int turnCount;
-    int roundCount;
-    int gameCount;
+    static int turnCount;
+    static int roundCount;
+    static int gameCount;
 public:
     Game(){
         roundCount = 0;
@@ -53,6 +53,14 @@ public:
         }
     }
 
+    vector<Player> getPlayers(){
+        return players;
+    }
+
+    vector<Player> getTurns(){
+        return Turns;
+    }
+
     void startGame(){
         roundCount = 1;
         gameCount = 1;
@@ -73,23 +81,23 @@ public:
 
     void startNextTurn(){
         if(getCommand().compare("DOUBLE") == 0){
-
+            Turns[turnCount].DOUBLE();
         }else if(getCommand().compare("HALF") == 0){
-
+            Turns[turnCount].HALF();
         }else if(getCommand().compare("NEXT") == 0){
-            
+            // Nothing
         }else if(getCommand().compare("QUADRUPLE") == 0){
-            
+            Turns[turnCount].QUADRUPLE();
         }else if(getCommand().compare("QUARTER") == 0){
-            
+            Turns[turnCount].QUARTER();
         }else if(getCommand().compare("REVERSE") == 0){
-            
+            Turns[turnCount].REVERSE();
         }else if(getCommand().compare("SWAPCARD") == 0){
-            
+            Turns[turnCount].SWAPCARD();
         }else if(getCommand().compare("SWITCH") == 0){
-            
+            Turns[turnCount].SWITCH();
         }else{
-            
+            Turns[turnCount].ABILITYLESS();
         }
         //Turns[turnCount].
     }
@@ -141,10 +149,11 @@ public:
         }
     }
 
-    int getCurrentPlayer(int turn, vector<int> robinstate){
-        return robinstate[turn];        
+    Player getCurrentPlayer(){
+        return Turns[turnCount];        
 
     }
+
     bool checkPlayersScore(){
         for (int i = 0; i < this->getPlayers().size(); ++i) {
             if(this->getPlayers()[i].getScore()> (2<<32)){
