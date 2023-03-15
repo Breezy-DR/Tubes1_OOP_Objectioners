@@ -10,4 +10,9 @@ void Switch::useAbility() {
         KartuDisabledException err;
         throw err;
     }    
+    if (this->isUsed) {
+        KartuUsedException err2;
+        throw err2;
+    }
+    this->isUsed = true;
 }

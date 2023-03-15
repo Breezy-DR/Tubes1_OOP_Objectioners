@@ -10,4 +10,12 @@ void ReverseDirection::useAbility() {
         KartuDisabledException err;
         throw err;
     }
+    if (this->isUsed) {
+        KartuUsedException err2;
+        throw err2;
+    }    
+
+    Game game;
+    // game.set
+    this->isUsed = true;
 }

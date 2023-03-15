@@ -11,6 +11,12 @@ struct KartuDisabledException : public exception  {
 	}
 };
 
+struct KartuUsedException : public exception  {
+	const char* what() const throw() {
+		return "Tingkatkan literasi! udah dipake kartunya";
+	}
+};
+
 struct InvalidCommandException : public exception  {
 	const char* what() const throw() {
 		return "Perintah invalid! Silahkan coba lagi!";
