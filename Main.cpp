@@ -1,32 +1,80 @@
 #include "class/Game.hpp"
+#include "class/Ability_Cards/Abilityless.cpp"
+#include "class/Ability_Cards/Quadruple.cpp"
+#include "class/Ability_Cards/Quarter.cpp"
+#include "class/Ability_Cards/ReRoll.cpp"
+#include "class/Ability_Cards/ReverseDirection.cpp"
+#include "class/Ability_Cards/SwapCard.cpp"
+#include "class/Ability_Cards/Switch.cpp"
 using namespace std;
 
 int main(){
-    Game game;
+    int play = true;
     cout << "Selamat datang players!" << endl;
-    
-    string name;
-    for(int i = 0; i < 7; i++){
-        cout << "Selamat datang Player " << i + 1 << "! Silahkan masukkan nama anda: " << endl;
-        cin >> name;
-        game.setPlayer(name);
-    }
+    while(play){
+        Game game;
+        string name;
+        for(int i = 0; i < 7; i++){
+            cout << "Selamat datang Player " << i + 1 << "! Silahkan masukkan nama anda: " << endl;
+            cin >> name;
+            game.setPlayer(name);
+        }
 
-    game.startGame();
-    cout << "GAME 1";
-    while(!game.checkPlayersScore()){
-        deckConfig(game);
-        cout << "ROUND 1 START!" << endl;
-        while(game.getRoundCount() <= 6){
-            cout << "Player " << game.getCurrentPlayer().getPlayerId() << " TURN!" << endl; 
+        game.startGame();
+        cout << "GAME " << game.getGameCount() << endl;
+        while(!game.checkPlayersScore()){
+            cout << "ROUND " << game.getRoundCount() << " START!" << endl;
             game.startNextTurn();
             if(game.getTurnCount() > 7){
+                if(game.getRoundCount() == 1){
+                    game.distributeAbilityCard();
+                }
+
+                if(game.getRoundCount() != 6){
+                    game.addTableCard();
+                }
+
                 game.startNextRound();
-                cout << "ROUND " << game.getRoundCount() <<" START!" << endl;
+                if(game.getRoundCount() == 1){
+                    game.endGame();
+                    if(!game.checkPlayersScore()){
+                        cout << "Current leaderboard: " << endl;
+                        //Tunjukkan leaderboard
+                        cout << "Score pemain belum ada yang mencapai 2^32, permainan berlanjut!!" << endl;
+                        cout << "GAME " << game.getGameCount() << endl;
+                        deckConfig(game);
+                    }
+                }
+            }
+        }
+
+        cout << "Permainan berakhir!\nLeaderboard akhir: " << endl;
+        //Tunjukkan leaderboard
+        cout << "Permainan dimenangkan oleh {pemenang}" << endl;
+        bool flag = true;
+        while(flag){
+            try{
+                string choice;
+                cout << "Apakah ingin bermain lagi?\n1. Main lagi\n2. Exit\n";
+                cin >> choice;
+
+                //Error
+                if(choice.compare("1") != 0  && choice.compare("2") != 0){
+                    throw InvalidChoiceException();
+                }
+
+                flag = false;
+                if(choice.compare("2") != 0){
+                    play = false;
+                }
+            }catch(InvalidChoiceException err){
+                cout << err.what() << endl;
             }
         }
     }
     
+
+
     return 0;
 }
 

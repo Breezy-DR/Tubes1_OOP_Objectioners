@@ -12,6 +12,7 @@
 //#include "MainCard.cpp"
 #include "MainDeck.cpp"
 #include "InventoryHolder.cpp"
+#include "TableCard.cpp"
 
     
 #include "Exception.h"
@@ -24,6 +25,7 @@ private:
     static bool reversed;
     static long long int poolPrize;
     static MainDeck mainDeck;
+    static TableCard table;
 
     int startingPlayerID;
     static int turnCount;
@@ -125,6 +127,10 @@ public:
         return mainDeck;
     }
 
+
+
+    //GAME SEGMENTS
+
     void startGame(){
         roundCount = 1;
         gameCount = 1;
@@ -132,7 +138,9 @@ public:
         startingPlayerID = 1;
         Turns = players;
         for(int i = 0; i < 7; i++){
-            
+            for(int j = 0; j < 2; j++){
+                players[i].setPlayerCard(players[i].getPlayerCard() + mainDeck.draw());
+            }
         }
     }
 
@@ -180,6 +188,59 @@ public:
         roundCount++;
         turnCount = 1;
         roundRobin();
+    }
+
+    void endGame(){
+        cout << "Ronde terakhir berakhir!\nSaatnya menunjukkan kartu kalian!" << endl;
+        for(int i = 0; i < 7; i++){
+            cout << "Kartu " << players[i].getPlayerName() << endl;
+            players[i].getPlayerCard().showCards();
+        }
+        cout << "Poin hadiah telah diberikan kepada pemenang." << endl;
+    }
+
+    void addTableCard(){
+        table = table + mainDeck.draw();
+    }
+
+    void distributeAbilityCard(){
+        vector<int> randomizer;
+        for(int i = 0; i < 7; i++){
+            randomizer[i] = i + 1;
+        }
+
+        for(int i = 0; i < 7; i++){
+            srand(time(NULL));
+            int random = rand() % randomizer.size();
+            int picked = randomizer.at(random);
+
+            switch(picked){
+                case 1:
+                    AbilityCard* ac = new Quadruple(i + 1);
+                    players[i].getPlayerCard().setAbilityCard(ac);
+                case 2:
+                    AbilityCard* ac = new Quarter(i + 1);
+                    players[i].getPlayerCard().setAbilityCard(ac);
+                case 3:
+                    AbilityCard* ac = new ReRoll(i + 1);
+                    players[i].getPlayerCard().setAbilityCard(ac);
+                case 4:
+                    AbilityCard* ac = new ReverseDirection(i + 1);
+                    players[i].getPlayerCard().setAbilityCard(ac);
+                case 5:
+                    AbilityCard* ac = new SwapCard(i + 1);
+                    players[i].getPlayerCard().setAbilityCard(ac);
+                case 6:
+                    AbilityCard* ac = new Switch(i + 1);
+                    players[i].getPlayerCard().setAbilityCard(ac);
+                default:
+                    AbilityCard* ac = new Abilityless(i + 1);
+                    players[i].getPlayerCard().setAbilityCard(ac);
+
+            }
+
+            randomizer.erase(randomizer.begin() + random);
+        }
     }
 
 
@@ -244,4 +305,5 @@ vector<Player> Game::players;
 vector<Player> Game::Turns;
 long long int Game::poolPrize = 64;
 MainDeck Game::mainDeck;
+TableCard Game::table;
 #endif //TUBES1_OOP_OBJECTIONERS_GAME_HPP
