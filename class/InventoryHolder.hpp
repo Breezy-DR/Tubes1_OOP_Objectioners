@@ -11,9 +11,9 @@ class InventoryHolder
 {
 private:
 public:
-    InventoryHolder();
-    InventoryHolder(const InventoryHolder &);
-    virtual ~InventoryHolder();
+    InventoryHolder(){}
+    InventoryHolder(const InventoryHolder &){}
+    virtual ~InventoryHolder(){}
     virtual void showCards()=0;
 };
 

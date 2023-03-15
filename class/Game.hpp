@@ -7,6 +7,10 @@
 #include "Player.hpp"
 #include <vector>
 #include <string>
+#include <math.h>
+#include "PlayerCard.cpp"
+#include "MainCard.cpp"
+// #include "InventoryHolder.hpp"
 
     
 #include "Exception.h"
@@ -30,27 +34,36 @@ public:
         reversed = false;
     }
 
+    ~Game(){}
+
     void setPlayer(string playerName){
         players.push_back(Player(players.size() + 1, playerName));
     }
 
+    // GETTERS
+
     string getCommand(){
         string command;
+        cout << "Masukkan command!" << endl;
         cout << "> ";
 
         cin >> command;
         //Convert to uppercase
         for(int i = 0; i < command.length(); i++){
-            command[i] -= 32;
+            if(command[i] > 90){
+                command[i] -= 32;
+            }
         }
+
+        //cout << "Command: "
 
         if(command.compare("NEXT") != 0 && command.compare("DOUBLE") != 0 && command.compare("HALF") != 0 && command.compare("RE-ROLL") != 0 && 
         command.compare("QUADRUPLE") != 0 && command.compare("QUARTER") != 0 && command.compare("REVERSE") != 0 && command.compare("SWAPCARD") != 0 &&
         command.compare("SWITCH") && command.compare("ABILITYLESS") != 0){
             throw InvalidCommandException();
-        }else{
-            return command;
         }
+
+        return command;
     }
 
     vector<Player> getPlayers(){
@@ -59,6 +72,26 @@ public:
 
     vector<Player> getTurns(){
         return Turns;
+    }
+
+    bool isReversed(){
+        return reversed;
+    }
+
+    int getStartingPlayerID(){
+        return startingPlayerID;
+    }
+
+    int getTurnCount(){
+        return turnCount;
+    }
+
+    int getRoundCount(){
+        return roundCount;
+    }
+
+    int getGameCount(){
+        return gameCount;
     }
 
     void startGame(){
@@ -80,25 +113,27 @@ public:
     }
 
     void startNextTurn(){
-        if(getCommand().compare("DOUBLE") == 0){
-            Turns[turnCount].DOUBLE();
-        }else if(getCommand().compare("HALF") == 0){
-            Turns[turnCount].HALF();
-        }else if(getCommand().compare("NEXT") == 0){
-            // Nothing
-        }else if(getCommand().compare("QUADRUPLE") == 0){
-            Turns[turnCount].QUADRUPLE();
-        }else if(getCommand().compare("QUARTER") == 0){
-            Turns[turnCount].QUARTER();
-        }else if(getCommand().compare("REVERSE") == 0){
-            Turns[turnCount].REVERSE();
-        }else if(getCommand().compare("SWAPCARD") == 0){
-            Turns[turnCount].SWAPCARD();
-        }else if(getCommand().compare("SWITCH") == 0){
-            Turns[turnCount].SWITCH();
+        string command = getCommand();
+        if(command.compare("DOUBLE") == 0){
+            Turns[turnCount - 1].DOUBLE();
+        }else if(command.compare("HALF") == 0){
+            Turns[turnCount - 1].HALF();
+        }else if(command.compare("NEXT") == 0){
+            cout << "Player " << Turns[turnCount - 1].getPlayerId() << " melakukan NEXT"  << endl;
+        }else if(command.compare("QUADRUPLE") == 0){
+            Turns[turnCount - 1].QUADRUPLE();
+        }else if(command.compare("QUARTER") == 0){
+            Turns[turnCount - 1].QUARTER();
+        }else if(command.compare("REVERSE") == 0){
+            Turns[turnCount - 1].REVERSE();
+        }else if(command.compare("SWAPCARD") == 0){
+            Turns[turnCount - 1].SWAPCARD();
+        }else if(command.compare("SWITCH") == 0){
+            Turns[turnCount - 1].SWITCH();
         }else{
-            Turns[turnCount].ABILITYLESS();
+            Turns[turnCount - 1].ABILITYLESS();
         }
+        turnCount++;
         //Turns[turnCount].
     }
 
@@ -150,13 +185,14 @@ public:
     }
 
     Player getCurrentPlayer(){
-        return Turns[turnCount];        
+        return Turns[turnCount - 1];        
 
     }
 
     bool checkPlayersScore(){
+        long long int maxScore = pow(2, 32);
         for (int i = 0; i < this->getPlayers().size(); ++i) {
-            if(this->getPlayers()[i].getScore()> (2<<32)){
+            if(this->getPlayers()[i].getScore() > maxScore){
                 return true;
             }
         }
@@ -165,4 +201,9 @@ public:
 };
 
 int Game::roundCount=0;
+int Game::turnCount=0;
+int Game::gameCount=0;
+bool Game::reversed=false;
+vector<Player> Game::players;
+vector<Player> Game::Turns;
 #endif //TUBES1_OOP_OBJECTIONERS_GAME_HPP

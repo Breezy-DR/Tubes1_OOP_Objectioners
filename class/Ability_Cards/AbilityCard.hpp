@@ -15,6 +15,7 @@ public:
     AbilityCard(int _holder, string _abilityname, string _abilitydescription);
     ~AbilityCard();
     virtual void useAbility() = 0;
+    float value();
     friend ostream &operator<<(ostream &os, AbilityCard& ac);
 };
 

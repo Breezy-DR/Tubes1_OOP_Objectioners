@@ -44,15 +44,33 @@ public:
     bool operator>(Player other){return this->getScore()>other.getScore();}
     bool operator<(Player other){return this->getScore()<other.getScore();}
     bool operator==(Player other){return this->getScore()==other.getScore();}
-    void REROLL(){}
-    void DOUBLE(){}
-    void QUADRUPLE(){}
-    void HALF(){}
-    void QUARTER(){}
-    void REVERSE(){}
-    void SWAPCARD(){}
-    void SWITCH(){}
-    void ABILITYLESS(){}
+    void REROLL(){
+        cout << "Player " << ID << " melakukan RE-ROLL"  << endl;
+    }
+    void DOUBLE(){
+        cout << "Player " << ID << " melakukan DOUBLE"  << endl;
+    }
+    void QUADRUPLE(){
+        cout << "Player " << ID << " melakukan QUADRUPLE"  << endl;
+    }
+    void HALF(){
+        cout << "Player " << ID << " melakukan HALF"  << endl;
+    }
+    void QUARTER(){
+        cout << "Player " << ID << " melakukan QUARTER"  << endl;
+    }
+    void REVERSE(){
+        cout << "Player " << ID << " melakukan REVERSE"  << endl;
+    }
+    void SWAPCARD(){
+        cout << "Player " << ID << " melakukan SWAP CARD"  << endl;
+    }
+    void SWITCH(){
+        cout << "Player " << ID << " melakukan SWITCH"  << endl;
+    }
+    void ABILITYLESS(){
+        cout << "Player " << ID << " melakukan ABILITYLESS"  << endl;
+    }
 };
 
 #endif //TUBES1_OOP_OBJECTIONERS_PLAYER_HPP

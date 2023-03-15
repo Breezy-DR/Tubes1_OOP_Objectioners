@@ -8,14 +8,14 @@ class PlayerCard : public InventoryHolder
 {
 private:
     vector<MainCard> MainPlayerCard;
-    AbilityCard AbilityCard;
+    AbilityCard *abilityCard;
 
 public:
     PlayerCard();
     PlayerCard(const PlayerCard &);
     ~PlayerCard();
     vector<MainCard> getMainPlayerCard();
-    AbilityCard getAbilityCard();
+    AbilityCard* getAbilityCard();
     void showCards();
     PlayerCard operator+(MainCard mc);
     friend PlayerCard operator+(MainCard,const PlayerCard&);
