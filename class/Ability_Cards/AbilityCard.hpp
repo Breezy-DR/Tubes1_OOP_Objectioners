@@ -4,6 +4,7 @@
 #include "Ability.hpp"
 #include "../Card.hpp"
 #include "../Exception.h"
+#include "Game.hpp"
 
 
 class AbilityCard : public Card, Ability {
