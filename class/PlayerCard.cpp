@@ -18,6 +18,11 @@ AbilityCard *PlayerCard::getAbilityCard()
     return this->abilityCard;
 }
 
+void PlayerCard::setAbilityCard(AbilityCard *abilityCard)
+{
+    this->abilityCard = abilityCard;
+}
+
 void PlayerCard::showCards()
 {
     cout << "Main card: \n1. " << this->getMainCard().at(0).getColorName() << "\n";
@@ -31,6 +36,7 @@ PlayerCard PlayerCard::operator+(MainCard mc)
     pc.mainCard.push_back(mc);
     return pc;
 }
+
 PlayerCard operator+(MainCard mainCard, const PlayerCard &playerCard)
 {
     PlayerCard pc;
@@ -38,6 +44,22 @@ PlayerCard operator+(MainCard mainCard, const PlayerCard &playerCard)
     pc.mainCard.push_back(mainCard);
     return pc;
 }
+
+PlayerCard PlayerCard::operator+(AbilityCard *ac)
+{
+    PlayerCard pc;
+    pc.abilityCard = ac;
+    return pc;
+}
+
+PlayerCard operator+(AbilityCard *abilityCard, const PlayerCard &playerCard)
+{
+    PlayerCard pc;
+    pc = playerCard;
+    pc.setAbilityCard(abilityCard);
+    return pc;
+}
+
 PlayerCard &PlayerCard::operator=(const PlayerCard &playerCard)
 {
     this->mainCard = playerCard.mainCard;

@@ -14,9 +14,12 @@ public:
     PlayerCard(const PlayerCard &);
     ~PlayerCard();
     AbilityCard *getAbilityCard();
+    void setAbilityCard(AbilityCard* abilityCard);
     void showCards();
     PlayerCard operator+(MainCard mc);
     friend PlayerCard operator+(MainCard, const PlayerCard &);
+    PlayerCard operator+(AbilityCard *ac);
+    friend PlayerCard operator+(AbilityCard, const PlayerCard &);
     PlayerCard &operator=(const PlayerCard &);
 };
 
