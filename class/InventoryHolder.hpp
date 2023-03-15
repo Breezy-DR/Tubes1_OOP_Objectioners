@@ -2,14 +2,16 @@
 #define INVENTORYHOLDER_HPP
 
 #include <iostream>
-#include <string>
+#include <vector>
 #include "MainCard.hpp"
 #include "Ability_Cards/AbilityCard.hpp"
 using namespace std;
 
 class InventoryHolder
 {
-private:
+protected:
+    vector<MainCard> mainCard;
+
 public:
     InventoryHolder() {}
     InventoryHolder(const InventoryHolder &) {}

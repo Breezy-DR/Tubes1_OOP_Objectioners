@@ -7,7 +7,6 @@
 class PlayerCard : public InventoryHolder
 {
 private:
-    vector<MainCard> MainPlayerCard;
     AbilityCard *abilityCard;
 
 public:

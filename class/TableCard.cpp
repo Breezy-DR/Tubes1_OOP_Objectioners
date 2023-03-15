@@ -4,47 +4,47 @@ TableCard::TableCard() {}
 
 TableCard::TableCard(const TableCard &tc)
 {
-    for (int i = 0; i < tc.MainTableCard.size(); ++i)
+    for (int i = 0; i < tc.mainCard.size(); ++i)
     {
-        this->getMainCard().push_back(tc.MainTableCard.at(i));
+        this->getMainCard().push_back(tc.mainCard.at(i));
     }
 }
 
 void TableCard::showCards()
 {
-    for (int i = 0; i < MainTableCard.size(); i++)
+    for (int i = 0; i < mainCard.size(); i++)
     {
-        cout << MainTableCard[i] << " ";
+        cout << mainCard[i] << " ";
     }
     cout << "\n";
 }
 
 vector<MainCard> TableCard::getMainCard() const
 {
-    return this->MainTableCard;
+    return this->mainCard;
 }
 
 TableCard TableCard::operator+(MainCard mc)
 {
     TableCard tc;
-    tc.MainTableCard = this->getMainCard();
-    tc.MainTableCard.push_back(mc);
+    tc.mainCard = this->getMainCard();
+    tc.mainCard.push_back(mc);
     return tc;
 }
 TableCard operator+(MainCard mc, const TableCard &tc)
 {
     TableCard newtc;
-    newtc.MainTableCard = tc.getMainCard();
-    newtc.MainTableCard.push_back(mc);
+    newtc.mainCard = tc.getMainCard();
+    newtc.mainCard.push_back(mc);
     return newtc;
 }
 
 TableCard &TableCard::operator=(const TableCard &tc)
 {
-    this->MainTableCard.clear();
-    for (int i = 0; i < tc.MainTableCard.size(); ++i)
+    this->mainCard.clear();
+    for (int i = 0; i < tc.mainCard.size(); ++i)
     {
-        this->MainTableCard.push_back(tc.MainTableCard.at(i));
+        this->mainCard.push_back(tc.mainCard.at(i));
     }
     return *this;
 }

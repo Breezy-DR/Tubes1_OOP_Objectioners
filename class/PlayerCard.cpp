@@ -7,15 +7,15 @@ PlayerCard::~PlayerCard() {}
 PlayerCard::PlayerCard(const PlayerCard &pc)
 {
     this->abilityCard = pc.abilityCard;
-    for (int i = 0; i < pc.MainPlayerCard.size(); ++i)
+    for (int i = 0; i < pc.mainCard.size(); ++i)
     {
-        this->MainPlayerCard.push_back(pc.MainPlayerCard.at(i));
+        this->mainCard.push_back(pc.mainCard.at(i));
     }
 }
 
 vector<MainCard> PlayerCard::getMainCard() const
 {
-    return this->MainPlayerCard;
+    return this->mainCard;
 }
 
 AbilityCard *PlayerCard::getAbilityCard()
@@ -33,19 +33,19 @@ void PlayerCard::showCards()
 PlayerCard PlayerCard::operator+(MainCard mc)
 {
     PlayerCard pc;
-    pc.MainPlayerCard.push_back(mc);
+    pc.mainCard.push_back(mc);
     return pc;
 }
 PlayerCard operator+(MainCard mainCard, const PlayerCard &playerCard)
 {
     PlayerCard pc;
-    pc.MainPlayerCard = playerCard.MainPlayerCard;
-    pc.MainPlayerCard.push_back(mainCard);
+    pc.mainCard = playerCard.mainCard;
+    pc.mainCard.push_back(mainCard);
     return pc;
 }
 PlayerCard &PlayerCard::operator=(const PlayerCard &playerCard)
 {
-    this->MainPlayerCard = playerCard.MainPlayerCard;
+    this->mainCard = playerCard.mainCard;
     this->abilityCard = playerCard.abilityCard;
     return *this;
 }

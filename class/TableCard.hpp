@@ -6,9 +6,6 @@
 
 class TableCard : public InventoryHolder
 {
-private:
-    vector<MainCard> MainTableCard;
-
 public:
     TableCard();
     TableCard(const TableCard &);
