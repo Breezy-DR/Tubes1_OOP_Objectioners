@@ -4,6 +4,7 @@
 #include <time.h>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 using namespace std;
 
 MainDeck::MainDeck(){
@@ -41,6 +42,11 @@ MainDeck::MainDeck(){
     }
 }
 
+MainDeck::MainDeck(const MainDeck& other){
+    this->size = other.size;
+    this->Cards = other.Cards;
+}
+
 MainDeck::MainDeck(string filepath){
     fstream file;
 
@@ -63,14 +69,18 @@ MainDeck::MainDeck(string filepath){
             }
             //cout << linews[0] << linews[1] << endl;
 
+            // CHECK ERROR
             if(j > 3 || j < 2){
-                cout << "error jumlah char" << endl;
+                //cout << "error jumlah char" << endl;
                 //Error jumlah char
+                throw InvalidCardException();
+                
             }
 
             if(linews[0] != 'G' && linews[0] != 'g' && linews[0] != 'B' && linews[0] != 'b' && linews[0] != 'Y' && linews[0] != 'y' && linews[0] != 'R' && linews[0] != 'r'){
-                cout << "error invalid color" << endl;
+                //cout << "error invalid color" << endl;
                 //Error invalid color
+                throw InvalidCardException();
             }else{
                 if(linews[0] == 'G' || linews[0] == 'g'){
                     color = Green;
@@ -84,8 +94,9 @@ MainDeck::MainDeck(string filepath){
             }
 
             if((j == 2 && (linews[1] < 49 || linews[1] > 57)) || (j == 3 && (linews[1] != '1' || linews[2] < 48 || linews[2] > 51))){
-                cout << "error invalid number" << endl;
+                //cout << "error invalid number" << endl;
                 //Erorr invalid number
+                throw InvalidCardException();
             }else{
                 number = linews[1] - '0';
                 if(j == 3){
@@ -94,6 +105,9 @@ MainDeck::MainDeck(string filepath){
                 //cout << number << endl;
             }
 
+            if(isInside(MainCard(color, number))){
+                throw DuplicateCardsException();
+            }
 
             Cards.push(MainCard(color, number));
 
@@ -108,20 +122,27 @@ MainDeck::MainDeck(string filepath){
             // cout << endl;
         }
 
-        // if(count != 52){
-        //     //Error card amount
-        // }
-        size = count;
+        if(count > 52){
+            throw TooManyCardsException();
+        }else if(count < 52){
+            throw TooFewCardsException();
+        }
 
+        size = count;
         file.close();
     }else{
-        //CAN'T OPEN FILE ERROR
+        throw InvalidFileException();
     }
 
 
 }
 
 MainDeck::~MainDeck(){}
+
+MainDeck& MainDeck::operator=(const MainDeck& other){
+    this->size = other.size;
+    this->Cards = other.Cards;
+}
 
 int MainDeck::getSize(){
     return size;
@@ -132,4 +153,18 @@ MainCard MainDeck::draw(){
     Cards.pop();
     size--;
     return drew;
+}
+
+bool MainDeck::isInside(MainCard mc){
+    vector<MainCard> cardVector;
+    stack<MainCard> temp = Cards;
+    for(int i = 0; i < Cards.size(); i++){
+        cardVector.push_back(temp.top());
+        temp.pop();
+    }
+
+    if(find(cardVector.begin(), cardVector.end(), mc) != cardVector.end()){
+        return true;
+    }
+    return false;
 }

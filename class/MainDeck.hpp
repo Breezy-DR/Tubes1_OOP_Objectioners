@@ -11,8 +11,11 @@ private:
     stack<MainCard> Cards;
 public:
     MainDeck();
-    MainDeck(string filepath);
+    MainDeck(const MainDeck&);
+    MainDeck(string);
     ~MainDeck();
+    MainDeck &operator=(const MainDeck&);
+    bool isInside(MainCard);
     int getSize();
     MainCard draw();
     

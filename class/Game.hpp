@@ -9,8 +9,9 @@
 #include <string>
 #include <math.h>
 #include "PlayerCard.cpp"
-#include "MainCard.cpp"
-// #include "InventoryHolder.hpp"
+//#include "MainCard.cpp"
+#include "MainDeck.cpp"
+#include "InventoryHolder.cpp"
 
     
 #include "Exception.h"
@@ -21,6 +22,8 @@ private:
     static vector<Player> players;
     static vector<Player> Turns;
     static bool reversed;
+    static long long int poolPrize;
+    static MainDeck mainDeck;
 
     int startingPlayerID;
     static int turnCount;
@@ -36,9 +39,16 @@ public:
 
     ~Game(){}
 
+    //SETTERS
+
     void setPlayer(string playerName){
         players.push_back(Player(players.size() + 1, playerName));
     }
+
+    void setMainDeck(string filename){
+        mainDeck = MainDeck(filename);
+    }
+
 
     // GETTERS
 
@@ -94,12 +104,23 @@ public:
         return gameCount;
     }
 
+    long long int getPoolPrize(){
+        return poolPrize;
+    }
+
+    MainDeck getMainDeck(){
+        return mainDeck;
+    }
+
     void startGame(){
         roundCount = 1;
         gameCount = 1;
         turnCount = 1;
         startingPlayerID = 1;
         Turns = players;
+        for(int i = 0; i < 7; i++){
+            
+        }
     }
 
     //Reverse turns (only affects remaining players haven't played this turn)
@@ -198,6 +219,7 @@ public:
         }
         return false;
     }
+
 };
 
 int Game::roundCount=0;
@@ -206,4 +228,6 @@ int Game::gameCount=0;
 bool Game::reversed=false;
 vector<Player> Game::players;
 vector<Player> Game::Turns;
+long long int Game::poolPrize = 64;
+MainDeck Game::mainDeck;
 #endif //TUBES1_OOP_OBJECTIONERS_GAME_HPP

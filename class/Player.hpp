@@ -36,8 +36,8 @@ public:
         cout<<"ID: "<< this->ID<<"\nName: "<< this->playerName<<"\nNormal card:\n";
 
 
-        for (int i = 0; i < this->getPlayerCard().getMainPlayerCard().size(); ++i) {
-            cout<< i+1<<"."<< this->getPlayerCard().getMainPlayerCard()[i]<<"\n";
+        for (int i = 0; i < this->getPlayerCard().getMainCard().size(); ++i) {
+            cout<< i+1<<"."<< this->getPlayerCard().getMainCard()[i]<<"\n";
         }
 //        cout<< this->getPlayerCard()->getAbilityCard()->getAbility()->getAbilityName();
     }
