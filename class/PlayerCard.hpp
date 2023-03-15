@@ -14,12 +14,12 @@ public:
     PlayerCard();
     PlayerCard(const PlayerCard &);
     ~PlayerCard();
-    vector<MainCard> getMainPlayerCard();
-    AbilityCard* getAbilityCard();
+    vector<MainCard> getMainPlayerCard() const;
+    AbilityCard *getAbilityCard();
     void showCards();
     PlayerCard operator+(MainCard mc);
-    friend PlayerCard operator+(MainCard,const PlayerCard&);
-    PlayerCard& operator=(const PlayerCard&);
+    friend PlayerCard operator+(MainCard, const PlayerCard &);
+    PlayerCard &operator=(const PlayerCard &);
 };
 
 #endif

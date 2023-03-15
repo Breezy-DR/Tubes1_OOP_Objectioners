@@ -14,9 +14,9 @@ public:
     TableCard(const TableCard &);
     ~TableCard();
     vector<MainCard> getMainTableCard() const;
-    void showCards() = 0;
-    TableCard *operator+(MainCard mc);
-    friend TableCard *operator+(MainCard, const TableCard &);
+    void showCards();
+    TableCard operator+(MainCard mc);
+    friend TableCard operator+(MainCard, const TableCard &);
     TableCard &operator=(const TableCard &);
 };
 
