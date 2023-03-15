@@ -13,7 +13,7 @@ public:
     TableCard();
     TableCard(const TableCard &);
     ~TableCard();
-    vector<MainCard> getMainTableCard() const;
+    vector<MainCard> getMainCard() const;
     void showCards();
     TableCard operator+(MainCard mc);
     friend TableCard operator+(MainCard, const TableCard &);

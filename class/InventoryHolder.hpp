@@ -11,10 +11,11 @@ class InventoryHolder
 {
 private:
 public:
-    InventoryHolder(){}
-    InventoryHolder(const InventoryHolder &){}
-    virtual ~InventoryHolder(){}
-    virtual void showCards()=0;
+    InventoryHolder() {}
+    InventoryHolder(const InventoryHolder &) {}
+    virtual ~InventoryHolder() {}
+    virtual void showCards() = 0;
+    virtual vector<MainCard> getMainCard() const = 0;
 };
 
 #endif
