@@ -13,6 +13,10 @@ AbilityCard::AbilityCard(int _holder, string _abilityName, string _abilityDescri
 
 AbilityCard::~AbilityCard() {}
 
+float AbilityCard::value() {
+    return 0;
+}
+
 ostream &operator<<(ostream &os, AbilityCard& ac) {
     os << "Holder       : " << ac.holder << endl;
     os << "Ability name : " << ac.abilityName << endl;
