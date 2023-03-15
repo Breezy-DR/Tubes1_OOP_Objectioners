@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include "MainCard.hpp"
-#include "AbilityCard.hpp"
+#include "Ability_Cards/AbilityCard.hpp"
 using namespace std;
 
 class InventoryHolder
@@ -15,7 +15,6 @@ public:
     InventoryHolder(const InventoryHolder &);
     virtual ~InventoryHolder();
     virtual void showCards()=0;
-
 };
 
 #endif

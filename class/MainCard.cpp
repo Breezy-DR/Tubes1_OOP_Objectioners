@@ -40,3 +40,10 @@ bool MainCard::operator==(MainCard other) {
 float MainCard::value() {
     return (float )this->getNumber()*0.1+ this->getColor()*0.03;
 }
+
+string MainCard::getColorName() const{
+    if (this->getColor()==Blue){return "Blue";}
+    else if (this->getColor()==Green){return "Green";}
+    else if (this->getColor()==Yellow){return "Yellow";}
+    else {return "Red";}
+}

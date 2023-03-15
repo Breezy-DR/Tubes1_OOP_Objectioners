@@ -7,16 +7,19 @@
 class PlayerCard : public InventoryHolder
 {
 private:
-    vector<Card *> MainPlayerCard;
-    Card *AbilityCard;
+    vector<MainCard> MainPlayerCard;
+    AbilityCard AbilityCard;
 
 public:
     PlayerCard();
     PlayerCard(const PlayerCard &);
     ~PlayerCard();
-    vector<Card *> getMainPlayerCard();
-    Card* getAbilityCard();
+    vector<MainCard> getMainPlayerCard();
+    AbilityCard getAbilityCard();
     void showCards();
+    PlayerCard operator+(MainCard mc);
+    friend PlayerCard operator+(MainCard,const PlayerCard&);
+    PlayerCard& operator=(const PlayerCard&);
 };
 
 #endif

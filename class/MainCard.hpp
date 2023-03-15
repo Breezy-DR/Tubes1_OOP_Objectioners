@@ -24,6 +24,7 @@ public:
     bool operator>(MainCard);
     bool operator<(MainCard);
     bool operator==(MainCard);
+    string getColorName() const;
     float value();
 };
 
