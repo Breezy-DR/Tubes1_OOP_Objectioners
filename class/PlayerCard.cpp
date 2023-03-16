@@ -33,6 +33,7 @@ void PlayerCard::showCards()
 PlayerCard PlayerCard::operator+(MainCard mc)
 {
     PlayerCard pc;
+    pc.setAbilityCard(this->abilityCard);
     pc.mainCard.push_back(mc);
     return pc;
 }
@@ -40,6 +41,7 @@ PlayerCard PlayerCard::operator+(MainCard mc)
 PlayerCard operator+(MainCard mainCard, const PlayerCard &playerCard)
 {
     PlayerCard pc;
+    pc.setAbilityCard(playerCard.abilityCard);
     pc.mainCard = playerCard.mainCard;
     pc.mainCard.push_back(mainCard);
     return pc;
@@ -48,6 +50,7 @@ PlayerCard operator+(MainCard mainCard, const PlayerCard &playerCard)
 PlayerCard PlayerCard::operator+(AbilityCard *ac)
 {
     PlayerCard pc;
+    pc.mainCard= this->mainCard;
     pc.abilityCard = ac;
     return pc;
 }
@@ -65,4 +68,17 @@ PlayerCard &PlayerCard::operator=(const PlayerCard &playerCard)
     this->mainCard = playerCard.mainCard;
     this->abilityCard = playerCard.abilityCard;
     return *this;
+}
+
+PlayerCard PlayerCard::operator-(int num){
+    PlayerCard pc;
+    pc.mainCard= this->getMainCard();
+    pc.setAbilityCard(this->getAbilityCard());
+    for (int i = 0; i < num; ++i) {
+        if (this->getMainCard().size()==0){
+            return pc;
+        }
+        pc.mainCard.pop_back();
+    }
+    return pc;
 }

@@ -59,4 +59,9 @@ struct DuplicateCardsException : public exception  {
 	}
 };
 
+//struct VectorKosongException:public exception{
+//    const char* what() const throw() {
+//        return "Vector kosong";
+//    }
+//};
 #endif
