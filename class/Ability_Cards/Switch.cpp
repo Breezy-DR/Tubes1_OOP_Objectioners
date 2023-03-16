@@ -30,9 +30,11 @@ void Switch::useAbility() {
             cout << "Pemain " << players.at(i).getPlayerId() << " (" << players.at(i).getPlayerName() << ")" << endl;
         }
     }
+    cout << "> ";
     cin >> target;
     while (target == this->holder || target < 1 || target > 7) {
         cout << "Masukan salah, silahkan masukkan kembali" << endl;
+        cout << "> ";
         cin >> target;
     }
     MainCard temp1 = players.at(this->holder-1).getPlayerCard().getMainCard().at(0);

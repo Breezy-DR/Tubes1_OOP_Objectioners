@@ -26,10 +26,11 @@ void SwapCard::useAbility() {
             cout << "Pemain " << players.at(i).getPlayerId() << " (" << players.at(i).getPlayerName() << ")" << endl;
         }
     }
-
+    cout << "> ";
     cin >> target1;
     while (target1 == this->holder || target1 < 1 || target1 > 7) {
         cout << "Masukan salah, silahkan masukkan kembali" << endl;
+        cout << "> ";
         cin >> target1;
     }
 
@@ -39,9 +40,11 @@ void SwapCard::useAbility() {
             cout << "Pemain " << players.at(i).getPlayerId() << " (" << players.at(i).getPlayerName() << ")" << endl;
         }
     }
+    cout << "> ";
     cin >> target2;
     while (target2 == target1 || target2 == this->holder || target2 || target2 < 1 || target2 > 7) {
         cout << "Masukan salah, silahkan masukkan kembali" << endl;
+        cout << "> ";
         cin >> target2;
     }
     target1--;
@@ -55,9 +58,11 @@ void SwapCard::useAbility() {
     cout << "Silakan pilih kartu kanan/kiri " << players.at(target1).getPlayerId() << " (" << players.at(target1).getPlayerName() << ")" << ": " << endl;
     cout << "1. Kanan" << endl;
     cout << "2. Kiri" << endl;
+    cout << "> ";
     cin >> s1;
     while (s1 != 1 || s1 != 2) {
         cout << "Masukan salah, silahkan masukkan kembali" << endl;
+        cout << "> ";
         cin >> s1;
     }
     if (s1 == 1) {
@@ -72,9 +77,12 @@ void SwapCard::useAbility() {
     cout << "Silakan pilih kartu kanan/kiri " << players.at(target1).getPlayerId() << " (" << players.at(target1).getPlayerName() << ")" << ": " << endl;
     cout << "1. Kanan" << endl;
     cout << "2. Kiri" << endl;
+
+    cout << "> ";
     cin >> s2;
     while (s2 != 1 || s2 != 2) {
         cout << "Masukan salah, silahkan masukkan kembali" << endl;
+        cout << "> ";
         cin >> s2;
     }
     if (s2 == 1) {

@@ -40,9 +40,11 @@ void Abilityless::useAbility() {
                 cout << "Pemain " << players.at(i).getPlayerId() << " (" << players.at(i).getPlayerName() << ")" << endl;
             }
         }
+        cout << "> ";
         cin >> target;
         while (target == this->holder) {
             cout << "Masukan salah! Silahkan masukkan kembali";
+            cout << "> ";
             cin >> target;
         }
         
