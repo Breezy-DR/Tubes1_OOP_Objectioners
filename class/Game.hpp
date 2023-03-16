@@ -13,6 +13,7 @@
 #include "InventoryHolder.cpp"
 #include "TableCard.cpp"
 #include "Combo.cpp"
+#include "ArrayComparer.hpp"
 
 #include "Ability_Cards/Abilityless.cpp"
 #include "Ability_Cards/Quadruple.hpp"
@@ -181,18 +182,31 @@ public:
         }else if(command.compare("NEXT") == 0){
             cout << "Player " << Turns[0].getPlayerId() << " melakukan NEXT"  << endl;
         }else if(command.compare("QUADRUPLE") == 0){
-            Turns[0].QUADRUPLE();
+            if(Turns[0].QUADRUPLE()){
+                setPoolPrize(getPoolPrize() * 4);
+            }
         }else if(command.compare("QUARTER") == 0){
-            Turns[0].QUARTER();
+            if(Turns[0].QUARTER()){
+                setPoolPrize(floor(getPoolPrize() / 4));
+                if(getPoolPrize() < 1){
+                    setPoolPrize(1);
+                }
+            }
         }else if(command.compare("REVERSE") == 0){
-            Turns[0].REVERSE();
+            if(Turns[0].REVERSE()){
+                toggleReverse();
+                reverseTurns();
+            }
         }else if(command.compare("SWAPCARD") == 0){
-            Turns[0].SWAPCARD();
+            if(Turns[0].SWAPCARD()){
+
+            }
         }else if(command.compare("SWITCH") == 0){
             Turns[0].SWITCH();
         }else{
             Turns[0].ABILITYLESS();
         }
+
         Turns.erase(Turns.begin());
     }
 
@@ -278,9 +292,24 @@ public:
     void showLeaderboard(){
         cout << "Leaderboard: " << endl;
         vector<Player> temp = players;
+        vector<Player> sorted;
+
+        //Sort
         for(int i = 0; i < 7; i++){
-            cout << i + 1 << ". " << players[i].getPlayerName() << ": " << players[i].getScore() << endl;
-            
+            Player max = temp[0];
+            int pos = 0;
+            for(int j = 0; j < temp.size(); j++){
+                if(players[j].getScore() >= max.getScore()){
+                    max = players[j];
+                    pos = j;
+                }
+            }
+            sorted.push_back(max);
+            temp.erase(temp.begin() + pos);
+        }
+
+        for(int i = 0; i < 7; i++){
+            cout << i + 1 << ". " << sorted[i].getPlayerName() << ": " << players[i].getScore() << endl;
         }
     }
 

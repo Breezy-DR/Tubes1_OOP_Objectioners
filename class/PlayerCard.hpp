@@ -19,7 +19,7 @@ public:
     PlayerCard operator+(MainCard mc);
     friend PlayerCard operator+(MainCard, const PlayerCard &);
     PlayerCard operator+(AbilityCard *ac);
-    friend PlayerCard operator+(AbilityCard, const PlayerCard &);
+    friend PlayerCard operator+(AbilityCard*, const PlayerCard &);
     PlayerCard &operator=(const PlayerCard &);
 };
 

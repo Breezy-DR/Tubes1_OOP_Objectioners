@@ -20,7 +20,6 @@ Combo::Combo(TableCard tableCard, PlayerCard playerCard) {
     vector<MainCard> mc;
     for (int i = 0; i < tableCard.getMainCard().size(); ++i) {
         mc.push_back(tableCard.getMainCard().at(i));
-        tableCard.
     }
     mc.push_back(playerCard.getMainCard().at(0));mc.push_back(playerCard.getMainCard().at(1));
     this->cardPool=mc;
@@ -59,15 +58,15 @@ float Combo::value() {
     else {return this->getHighCard();}
 }
 
-bool Combo::operator<(const Combo& c2) {
+bool Combo::operator<(Combo c2) {
     return (this->value() < c2.value());
 }
 
-bool Combo::operator>(const Combo& c2) {
+bool Combo::operator>(Combo c2) {
     return (this->value() > c2.value());
 }
 
-bool Combo::operator==(const Combo& c2) {
+bool Combo::operator==(Combo c2) {
     return (this->value() == c2.value());
 }
 
@@ -158,10 +157,10 @@ bool Combo::checkFlush(){
     vector<MainCard> redCards;
     vector<MainCard> sorted= sortCard(this->cardPool);
     for (int i = sorted.size()-1; i >= 0; i--) {
-        if (sorted.at(i).getColor()==Blue){blueCards.push_back(sorted.at(i))}
-        else if (sorted.at(i).getColor()==Green){greenCards.push_back(sorted.at(i))}
-        else if (sorted.at(i).getColor()==Yellow){yellowCards.push_back(sorted.at(i))}
-        else {redCards.push_back(sorted.at(i))}
+        if (sorted.at(i).getColor()==Blue){blueCards.push_back(sorted.at(i));}
+        else if (sorted.at(i).getColor()==Green){greenCards.push_back(sorted.at(i));}
+        else if (sorted.at(i).getColor()==Yellow){yellowCards.push_back(sorted.at(i));}
+        else {redCards.push_back(sorted.at(i));}
         if (blueCards.size()==5||greenCards.size()==5||yellowCards.size()==5||redCards.size()==5){
             return true;
         }
@@ -230,10 +229,10 @@ bool Combo::checkPair(){
     }
     return false;
 }
-}
+
 float Combo::getHighCard(){
     vector<MainCard> sorted= sortCard(this->cardPool);
-    return sorted.at(1).value()
+    return sorted.at(1).value();
 }
 
 float Combo::getPair(){
@@ -250,7 +249,7 @@ float Combo::getThreeOfKind(){
     vector<MainCard> sorted= sortCard(this->cardPool);
     for (int i = sorted.size()-1; i >=2; i--) {
         if (sorted.at(i).getNumber()== sorted.at(i-1).getNumber()&&sorted.at(i).getNumber()==sorted.at(i-2).getNumber()){
-            return (sorted.at(i).value()+sorted.at(i-1).value()+sorted.at(i-2))+9.47;
+            return (sorted.at(i).value()+sorted.at(i-1).value() + sorted.at(i-2).value())+9.47;
         }
     }
     return 0;
@@ -270,7 +269,7 @@ float Combo::getTwoPair(){
     return 0;
 }
 
-vector<MainCard> Combo::getStraight(){
+float Combo::getStraight(){
     vector<MainCard> sorted= sortCard(this->cardPool);
 //    for (int i = sorted.size()-1; i >= 4; i--) {
 //        if (sorted.at(i).getNumber()== sorted.at(i-1).getNumber()+1&&sorted.at(i).getNumber()==sorted.at(i-2).getNumber()+2
@@ -307,10 +306,10 @@ float Combo::getFlush(){
     vector<MainCard> redCards;
     vector<MainCard> sorted= sortCard(this->cardPool);
     for (int i = sorted.size()-1; i >= 0; i--) {
-        if (sorted.at(i).getColor()==Blue){blueCards.push_back(sorted.at(i))}
-        else if (sorted.at(i).getColor()==Green){greenCards.push_back(sorted.at(i))}
-        else if (sorted.at(i).getColor()==Yellow){yellowCards.push_back(sorted.at(i))}
-        else {redCards.push_back(sorted.at(i))}
+        if (sorted.at(i).getColor()==Blue){blueCards.push_back(sorted.at(i));}
+        else if (sorted.at(i).getColor()==Green){greenCards.push_back(sorted.at(i));}
+        else if (sorted.at(i).getColor()==Yellow){yellowCards.push_back(sorted.at(i));}
+        else {redCards.push_back(sorted.at(i));}
         if (blueCards.size()==5||greenCards.size()==5||yellowCards.size()==5||redCards.size()==5){
             break;
         }

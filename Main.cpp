@@ -33,8 +33,7 @@ int main(){
                 if(game.getRoundCount() == 1){
                     game.endGame();
                     if(!game.checkPlayersScore()){
-                        cout << "Current leaderboard: " << endl;
-                        //Tunjukkan leaderboard
+                        game.showLeaderboard();
                         cout << "Score pemain belum ada yang mencapai 2^32, permainan berlanjut!!" << endl;
                         cout << "GAME " << game.getGameCount() << endl;
                         deckConfig(game);

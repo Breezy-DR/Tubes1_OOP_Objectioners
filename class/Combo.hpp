@@ -28,13 +28,13 @@ class Combo : public ValueHolder {
 //        void setCombo(int comboNum);
         float value();
 
-        vector<MainCard> getCardPool;
+        vector<MainCard> getCardPool();
         TableCard getTableCard();
         PlayerCard getPlayerCard();
 
-        bool operator<(const Combo& c2);
-        bool operator>(const Combo& c2);
-        bool operator==(const Combo& c2);
+        bool operator<(Combo c2);
+        bool operator>(Combo c2);
+        bool operator==(Combo c2);
         bool checkStraightFlush();
         bool checkFourOfKind();
         bool checkFullHouse();
