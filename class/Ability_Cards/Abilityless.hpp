@@ -8,7 +8,7 @@ private:
 public:
     Abilityless();
     Abilityless(int);
-    void useAbility(Game game);
+    void useAbility();
 };
 
 

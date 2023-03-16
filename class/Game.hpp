@@ -4,7 +4,7 @@
 
 #ifndef TUBES1_OOP_OBJECTIONERS_GAME_HPP
 #define TUBES1_OOP_OBJECTIONERS_GAME_HPP
-#include "Player.hpp"
+#include "Player.cpp"
 #include <vector>
 #include <string>
 #include <math.h>
@@ -112,6 +112,8 @@ public:
     Player getCurrentPlayer();
 
     bool checkPlayersScore();
+
+    TableCard getTableCard();
 
 };
 

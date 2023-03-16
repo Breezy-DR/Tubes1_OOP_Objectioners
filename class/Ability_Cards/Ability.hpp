@@ -1,10 +1,10 @@
 #ifndef __ABILITY_HPP__
 #define __ABILITY_HPP__
 #pragma once
+class Game;
 #include <string>
 using namespace std;
 
-class Game;
 class Ability {
 protected:
     string abilityName;
@@ -16,7 +16,7 @@ public:
     void setDescription(string);
     string getAbilityName();
     string getDescription();
-    virtual void useAbility() = 0;
+    virtual void useAbility(){}
 };
 
 

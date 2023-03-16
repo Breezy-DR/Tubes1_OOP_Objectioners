@@ -11,8 +11,6 @@
 #pragma once
 using namespace std;
 
-class Game;
-
 class Player{
 private:
     int ID;
@@ -36,19 +34,19 @@ public:
     bool operator<(Player other);
     bool operator==(Player other);
     
-    bool REROLL(Game game);
+    bool REROLL();
     
     void DOUBLE();
 
-    bool QUADRUPLE(Game game);
+    bool QUADRUPLE();
 
     void HALF();
 
-    bool QUARTER(Game game);
-    bool REVERSE(Game game);
-    bool SWAPCARD(Game game);
-    bool SWITCH(Game game);
-    bool ABILITYLESS(Game game);
+    bool QUARTER();
+    bool REVERSE();
+    bool SWAPCARD();
+    bool SWITCH();
+    bool ABILITYLESS();
 };
 
 #endif //TUBES1_OOP_OBJECTIONERS_PLAYER_HPP

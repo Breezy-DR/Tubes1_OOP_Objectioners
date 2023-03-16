@@ -226,10 +226,12 @@ void Game::endGame(){
         cout << "Kartu " << players[i].getPlayerName() << endl;
         cout << "Error show\n";
         players[i].getPlayerCard().showCards();
-
+        cout << "Error combo loop\n";
+        combos.push_back(Combo(table, players[i].getPlayerCard()));
     }
     cout << "Error combo\n";
-    combos.push_back(Combo(table, players[0].getPlayerCard()));
+    cout << "Combo size: " << combos.size() << endl;
+    cout << "Combo value 0: " << combos[0].value() << endl;
 
     cout <<"BATAS\n";
     for(int i = 0; i < 7; i++){
@@ -242,14 +244,19 @@ void Game::endGame(){
             maxID = players[i].getPlayerId();
         }
     }
-
+    cout << "SINI" << endl;
     players[maxID - 1].setScore(getPoolPrize());
 
     cout << "Poin hadiah telah diberikan kepada " << players[maxID - 1].getPlayerName() << "." << endl;
 }
 
 void Game::addTableCard(){
-    table = table + mainDeck.draw();
+    // table = table + mainDeck.draw();
+    vector<MainCard> newmc=this->table.getMainCard();
+    newmc.push_back(mainDeck.draw());
+    cout<<"before"<<this->table.getMainCard().size()<<endl;
+    this->table.setMainCards(newmc);
+    cout<<"after"<<this->table.getMainCard().size()<<endl;
 }
 
 void Game::deckConfig(){
@@ -445,4 +452,8 @@ bool Game::checkPlayersScore(){
         }
     }
     return false;
+}
+
+TableCard Game::getTableCard(){
+    return this->table;
 }

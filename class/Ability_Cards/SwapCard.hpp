@@ -8,7 +8,7 @@ private:
 public:
     SwapCard();
     SwapCard(int);
-    void useAbility(Game);
+    void useAbility();
 };
 
 

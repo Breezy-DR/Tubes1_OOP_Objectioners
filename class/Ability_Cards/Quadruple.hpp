@@ -8,7 +8,7 @@ private:
 public:
     Quadruple();
     Quadruple(int);
-    void useAbility(Game);
+    void useAbility();
 };
 
 

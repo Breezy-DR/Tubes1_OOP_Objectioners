@@ -1,1 +1,5 @@
 /.idea/
+driver.cpp
+*.exe
+*.txt
+*.json

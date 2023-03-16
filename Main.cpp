@@ -1,4 +1,4 @@
-#include "class/Game.hpp"
+#include "class/Game.cpp"
 //#include <iostream>
 using namespace std;
 
@@ -44,6 +44,7 @@ int main(){
 
                 if(game.getRoundCount() != 6){
                     game.addTableCard();
+                    cout<<"tablesizae" <<game.getTableCard().getMainCard().size()<<endl;
                 }
 
                 game.startNextRound();

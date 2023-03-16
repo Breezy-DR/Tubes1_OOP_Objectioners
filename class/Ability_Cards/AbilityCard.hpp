@@ -4,7 +4,6 @@
 #include "Ability.hpp"
 #include "../Card.hpp"
 #include "../Exception.h"
-#pragma once
 //#include "../Game.hpp"
 
 
@@ -17,7 +16,7 @@ public:
     AbilityCard(int _holder, string _abilityname, string _abilitydescription);
     
     ~AbilityCard();
-    virtual void useAbility(Game) = 0;
+    virtual void useAbility() = 0;
     bool getIsUsed();
     bool getIsDisabled();
     void setIsUsed(bool);

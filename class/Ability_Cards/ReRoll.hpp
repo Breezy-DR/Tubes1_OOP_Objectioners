@@ -8,7 +8,7 @@ private:
 public:
     ReRoll();
     ReRoll(int);
-    void useAbility(Game);
+    void useAbility();
 };
 
 

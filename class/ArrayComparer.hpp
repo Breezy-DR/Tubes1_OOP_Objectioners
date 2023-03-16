@@ -54,8 +54,9 @@ class ArrayComparer {
         }
 
         vector<T> sort(){
+            // cout << "MULAI\n";
             for (int i = 0; i < this->elements.size(); ++i) {
-                for (int j = 0; j < this->elements.size() - i; ++j) {
+                for (int j = 0; j < this->elements.size() - i-1; ++j) {
                     if (this->elements.at(j)> this->elements.at(j+1)){
                         T temp= this->elements.at(j);
                         this->elements.at(j)= this->elements.at(j+1);
@@ -63,11 +64,12 @@ class ArrayComparer {
                     }
                 }
             }
+            // cout << "SELESAI\n";
             return this->elements;
         }
 
 };
 
 
-
+vector<MainCard> sort();
 #endif

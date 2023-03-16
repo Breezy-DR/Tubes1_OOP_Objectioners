@@ -5,7 +5,7 @@ ReverseDirection::ReverseDirection() : AbilityCard(-3, "Reverse Direction", "Mem
 
 ReverseDirection::ReverseDirection(int holder) : AbilityCard(holder, "Reverse Direction", "Memutar arah giliran.") {}
 
-void ReverseDirection::useAbility(Game game) {
+void ReverseDirection::useAbility() {
     if (this->isDisabled) {
         KartuDisabledException err;
         throw err;
@@ -16,6 +16,6 @@ void ReverseDirection::useAbility(Game game) {
     }    
 
     //Game game;
-    game.toggleReverse();
-    this->isUsed = true;
+    // game.toggleReverse();
+    // this->isUsed = true;
 }

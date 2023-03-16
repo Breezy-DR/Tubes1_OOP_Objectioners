@@ -8,7 +8,7 @@ private:
 public:
     Switch();
     Switch(int);
-    void useAbility(Game);
+    void useAbility();
 };
 
 
