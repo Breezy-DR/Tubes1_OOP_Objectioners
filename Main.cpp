@@ -38,7 +38,7 @@ int main(){
                 try{
                     game.startNextTurn();
                     flag = false;
-                }catch(InvalidChoiceException err){
+                }catch(InvalidCommandException err){
                     cout << err.what() << endl;
                 }
             }
@@ -51,8 +51,10 @@ int main(){
                 }
 
                 if(game.getRoundCount() != 6){
+                    cout << "BEFORE ROUNDCOUNT: " << game.getTable().getMainCard().size() << endl;
                     game.addTableCard();
-                    cout<<"tablesizae" <<game.getTableCard().getMainCard().size()<<endl;
+                    cout << "AFTER ROUNDCOUNT: " << game.getTable().getMainCard().size() << endl;
+                    game.getTable().showCards();
                 }
 
                 game.startNextRound();
