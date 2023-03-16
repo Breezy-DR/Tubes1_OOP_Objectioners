@@ -372,9 +372,9 @@ void Game::setTableCard(vector<MainCard> mc){
     table.setMainCards(mc);
 }
 
-void Game::setTableCard(vector<MainCard> tc){
-    this->table.setMainCards(tc);
-}
+//void Game::setTableCard(vector<MainCard> tc){
+//    this->table.setMainCards(tc);
+//}
 
 vector<MainCard> Game::addtableVector(){
     vector<MainCard> newmc=this->getTableCard().getMainCard();
@@ -593,6 +593,6 @@ bool Game::checkPlayersScore(){
     return false;
 }
 
-TableCard Game::getTable(){
+TableCard Game::getTableCard(){
     return table;
 }

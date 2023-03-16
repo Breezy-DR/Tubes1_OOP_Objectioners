@@ -100,7 +100,7 @@ public:
 
     void addTableCard();
     void clearHands();
-    void setTableCard(vector<MainCard> tc);
+//    void setTableCard(vector<MainCard> tc);
     vector<MainCard> addtableVector();
 
     void deckConfig();
@@ -117,7 +117,7 @@ public:
 
     bool checkPlayersScore();
 
-    TableCard getTable();
+    TableCard getTableCard();
 
     void setTableCard(vector<MainCard> mc);
 

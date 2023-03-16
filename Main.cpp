@@ -57,7 +57,7 @@ int main(){
                     //cout << "BEFORE ROUNDCOUNT: " << game.getTable().getMainCard().size() << endl;
                     game.addTableCard();
                     //cout << "AFTER ROUNDCOUNT: " << game.getTable().getMainCard().size() << endl;
-                    game.getTable().showCards();
+                    game.getTableCard().showCards();
                 }
 
                 game.startNextRound();
