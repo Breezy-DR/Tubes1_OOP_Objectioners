@@ -5,7 +5,7 @@ ReRoll::ReRoll() : AbilityCard(-3, "Re-Roll", "Membuang 2 kartu dari main deck y
 
 ReRoll::ReRoll(int holder) : AbilityCard(holder, "Re-Roll", "Membuang 2 kartu dari main deck yang dimiliki oleh diri sendiri dan mengambil ulang 2 kartu.") {}
 
-void ReRoll::useAbility() {
+void ReRoll::useAbility(Game game) {
     if (this->isDisabled) {
         KartuDisabledException err;
         throw err;
@@ -17,7 +17,7 @@ void ReRoll::useAbility() {
     this->isUsed = true;
     cout << "Melakukan pembuangan kartu yang sedang dimiliki" << endl;
 
-    Game game;
+    //Game game;
     vector<Player> players = game.getPlayers();
     players.at(this->holder-1).getPlayerCard() = players.at(this->holder-1).getPlayerCard() - 2;
     //players.at(this->holder-1).getPlayerCard() = players.at(this->holder-1).getPlayerCard() + 2;

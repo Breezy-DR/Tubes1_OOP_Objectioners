@@ -5,7 +5,7 @@ Switch::Switch() : AbilityCard(-3, "Switch", "Menukar 2 kartu main deck milik di
 
 Switch::Switch(int holder) : AbilityCard(holder, "Switch", "Menukar 2 kartu main deck milik diri sendiri dengan 2 kartu main deck milik pemain lain.") {}
 
-void Switch::useAbility() {
+void Switch::useAbility(Game game) {
     if (this->isDisabled) {
         KartuDisabledException err;
         throw err;
@@ -16,7 +16,7 @@ void Switch::useAbility() {
     }
     this->isUsed = true;
 
-    Game game;
+    //Game game;
     vector<Player> players = game.getPlayers();
     int target;
 

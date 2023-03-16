@@ -8,7 +8,7 @@ private:
 public:
     Quarter();
     Quarter(int);
-    void useAbility();
+    void useAbility(Game);
 };
 
 

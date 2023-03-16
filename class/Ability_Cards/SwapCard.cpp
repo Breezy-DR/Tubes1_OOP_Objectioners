@@ -5,7 +5,7 @@ SwapCard::SwapCard() : AbilityCard(-3, "Swap Card", "Menukar 1 kartu main deck m
 
 SwapCard::SwapCard(int holder) : AbilityCard(holder, "Swap Card", "Menukar 1 kartu main deck milik pemain lain dengan 1 kartu main deck milik pemain lain.") {}
 
-void SwapCard::useAbility() {
+void SwapCard::useAbility(Game game) {
     if (this->isDisabled) {
         KartuDisabledException err;
         throw err;
@@ -15,7 +15,7 @@ void SwapCard::useAbility() {
         throw err2;
     }
     this->isUsed = true;
-    Game game;
+    //Game game;
     int target1;
     int target2;
     vector<Player> players = game.getPlayers();

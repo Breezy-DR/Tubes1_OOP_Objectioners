@@ -1,11 +1,12 @@
 #include "Abilityless.hpp"
+using namespace std;
 
 
 Abilityless::Abilityless() : AbilityCard(-3, "Abilityless", "Mematikan kartu ability milik pemain lain.") {}
 
 Abilityless::Abilityless(int holder) : AbilityCard(holder, "Abilityless", "Mematikan kartu ability milik pemain lain.") {}
 
-void Abilityless::useAbility() {
+void Abilityless::useAbility(Game game) {
     if (this->isDisabled) {
         KartuDisabledException err;
         throw err;
@@ -15,24 +16,24 @@ void Abilityless::useAbility() {
         throw err2;
     }
     // Game game;
-    // vector<Player> players = game.getPlayers();
-    // int target;
-    // bool allUsed = true;
+    vector<Player> players = game.getPlayers();
+    int target;
+    bool allUsed = true;
 
-    // for (int i = 0; i < players.size(); i++) {
-    //     if (players.at(i).getPlayerId() != this->holder) {
-    //         if (!players.at(i).getPlayerCard().getAbilityCard()->getIsUsed()) {
-    //             allUsed = false;
-    //             break;
-    //         }
-    //     }
-    // }
-
-    // if (allUsed) {
-    //     cout << "Yah telat pake abilityless, semua pemain udah pake ability mereka. Kamu kena sendiri deh abilityless" << endl;
-    //     this->isDisabled = true;
-    
+    for (int i = 0; i < players.size(); i++) {
+        if (players.at(i).getPlayerId() != this->holder) {
+            if (!players.at(i).getPlayerCard().getAbilityCard()->getIsUsed()) {
+                allUsed = false;
+                break;
+            }
+        }
     }
+
+    if (allUsed) {
+        cout << "Yah telat pake abilityless, semua pemain udah pake ability mereka. Kamu kena sendiri deh abilityless" << endl;
+        this->isDisabled = true;
+    }
+    
     else {
         cout << "Silahkan pilih pemain yang kartu abilitynya ingin dimatikan:" << endl;
         for (int i = 0; i < players.size(); i++) {

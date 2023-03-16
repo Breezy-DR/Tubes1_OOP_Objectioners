@@ -1,6 +1,6 @@
 #ifndef __ABILITYLESS_HPP__
 #define __ABILITYLESS_HPP__
-#include "AbilityCard.hpp"
+#include "AbilityCard.cpp"
 
 
 class Abilityless : public AbilityCard {
@@ -8,7 +8,7 @@ private:
 public:
     Abilityless();
     Abilityless(int);
-    void useAbility();
+    void useAbility(Game game);
 };
 
 

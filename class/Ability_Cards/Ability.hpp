@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-
+class Game;
 class Ability {
 protected:
     string abilityName;

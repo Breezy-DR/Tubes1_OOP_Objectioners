@@ -5,10 +5,12 @@
 #ifndef TUBES1_OOP_OBJECTIONERS_PLAYER_HPP
 #define TUBES1_OOP_OBJECTIONERS_PLAYER_HPP
 #include "PlayerCard.hpp"
+//#include "Game.hpp"
 #include <string>
 #include <iostream>
 using namespace std;
 
+class Game;
 
 class Player{
 private:
@@ -46,9 +48,9 @@ public:
     bool operator<(Player other){return this->getScore()<other.getScore();}
     bool operator==(Player other){return this->getScore()==other.getScore();}
     
-    bool REROLL(){
+    bool REROLL(Game game){
         if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Re-Roll") == 0){
-            playerCard.getAbilityCard()->useAbility();
+            playerCard.getAbilityCard()->useAbility(game);
             cout << "Player " << ID << " melakukan RE-ROLL"  << endl;
             return true;
         }
@@ -59,9 +61,9 @@ public:
         cout << "Player " << ID << " melakukan DOUBLE"  << endl;
     }
 
-    bool QUADRUPLE(){
+    bool QUADRUPLE(Game game){
         if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Quadruple") == 0){
-            playerCard.getAbilityCard()->useAbility();
+            playerCard.getAbilityCard()->useAbility(game);
             cout << "Player " << ID << " melakukan QUADRUPLE"  << endl;
             return true;
         }
@@ -72,41 +74,41 @@ public:
         cout << "Player " << ID << " melakukan HALF"  << endl;
     }
 
-    bool QUARTER(){
+    bool QUARTER(Game game){
         if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Quarter") == 0){
-            playerCard.getAbilityCard()->useAbility();
+            playerCard.getAbilityCard()->useAbility(game);
             cout << "Player " << ID << " melakukan QUARTER"  << endl;
             return true;
         }
         return false;
     }
-    bool REVERSE(){
+    bool REVERSE(Game game){
         if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Reverse Direction") == 0){
-            playerCard.getAbilityCard()->useAbility();
+            playerCard.getAbilityCard()->useAbility(game);
             cout << "Player " << ID << " melakukan REVERSE"  << endl;
             return true;
         }
         return false;
     }
-    bool SWAPCARD(){
+    bool SWAPCARD(Game game){
         if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Swap Card") == 0){
-            playerCard.getAbilityCard()->useAbility();
+            playerCard.getAbilityCard()->useAbility(game);
             cout << "Player " << ID << " melakukan SWAP CARD"  << endl;
             return true;
         }
         return false;
     }
-    bool SWITCH(){
+    bool SWITCH(Game game){
         if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Switch") == 0){
-            playerCard.getAbilityCard()->useAbility();
+            playerCard.getAbilityCard()->useAbility(game);
             cout << "Player " << ID << " melakukan SWITCH"  << endl;
             return true;
         }
         return false;
     }
-    bool ABILITYLESS(){
+    bool ABILITYLESS(Game game){
         if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Abilityless") == 0){
-            playerCard.getAbilityCard()->useAbility();
+            playerCard.getAbilityCard()->useAbility(game);
             cout << "Player " << ID << " melakukan ABILITYLESS"  << endl;
             return true;
         }

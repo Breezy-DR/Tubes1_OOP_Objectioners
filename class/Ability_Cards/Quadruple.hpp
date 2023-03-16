@@ -1,6 +1,6 @@
 #ifndef __QUADRUPLE_HPP__
 #define __QUADRUPLE_HPP__
-#include "AbilityCard.hpp"
+#include "AbilityCard.cpp"
 
 
 class Quadruple : public AbilityCard {
@@ -8,7 +8,7 @@ private:
 public:
     Quadruple();
     Quadruple(int);
-    void useAbility();
+    void useAbility(Game);
 };
 
 
