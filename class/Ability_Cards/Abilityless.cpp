@@ -21,7 +21,7 @@ void Abilityless::useAbility() {
 
     for (int i = 0; i < players.size(); i++) {
         if (players.at(i).getPlayerId() != this->holder) {
-            if (!players.at(i).getPlayerCard().getAbilityCard()->isUsed) {
+            if (!players.at(i).getPlayerCard().getAbilityCard()->getIsUsed()) {
                 allUsed = false;
                 break;
             }
@@ -43,11 +43,11 @@ void Abilityless::useAbility() {
         cin >> target;
         target--;
         this->isUsed = true;
-        if (players.at(target).getPlayerCard().getAbilityCard()->isUsed) {
+        if (players.at(target).getPlayerCard().getAbilityCard()->getIsUsed()) {
             cout << "Sayangnya pemain ini telah menggunakan kartu ability" << endl;
         }
         else {
-            players.at(target).getPlayerCard().getAbilityCard()->isDisabled = true;
+            players.at(target).getPlayerCard().getAbilityCard()->setIsDisabled(true);
             cout << "kartu pemain " << players.at(target).getPlayerId() << "(" << players.at(target).getPlayerName() << ") telah terdisable" << endl;
         }
     }

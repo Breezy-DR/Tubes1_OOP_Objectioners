@@ -17,6 +17,20 @@ float AbilityCard::value() {
     return 0;
 }
 
+bool AbilityCard::getIsUsed(){
+    return isUsed;
+}
+bool AbilityCard::getIsDisabled(){
+    return isDisabled;
+}
+
+void AbilityCard::setIsUsed(bool state){
+    isUsed = state;
+}
+void AbilityCard::setIsDisabled(bool state){
+    isDisabled = state;
+}
+
 ostream &operator<<(ostream &os, AbilityCard& ac) {
     os << "Holder       : " << ac.holder << endl;
     os << "Ability name : " << ac.abilityName << endl;

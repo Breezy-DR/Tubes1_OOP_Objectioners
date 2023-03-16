@@ -17,6 +17,10 @@ public:
     
     ~AbilityCard();
     virtual void useAbility() = 0;
+    bool getIsUsed();
+    bool getIsDisabled();
+    void setIsUsed(bool);
+    void setIsDisabled(bool);
     float value();
     friend ostream &operator<<(ostream &os, AbilityCard& ac);
 };
