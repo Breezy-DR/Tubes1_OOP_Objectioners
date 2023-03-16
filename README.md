@@ -8,7 +8,7 @@ Ini adalah repository untuk Tubes 1 IF2210 2022/2023. Program ini memanfaatkan O
 LINUX dengan G++ versi 11, 14 atau 17
 
 ## Cara meng-compile program
-Jalankan ```main.cpp``` dalam terminal Linux atau WSL.
+Jalankan ```Main.cpp``` dalam terminal Linux atau WSL.
 
 ## Author
 - Muhammad Equillibrie Fajria (13521047)
