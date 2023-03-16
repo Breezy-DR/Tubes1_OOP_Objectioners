@@ -21,8 +21,8 @@ void Switch::useAbility() {
     int target;
 
     cout << "Kartumu sekarang adalah:" << endl;
-    cout << "1. " << players.at(this->holder-1).getPlayerCard().getMainCard().at(0).getColorName() << endl;
-    cout << "2. " << players.at(this->holder-1).getPlayerCard().getMainCard().at(1).getColorName() << endl;
+    cout << "1. " << players.at(this->holder-1).getPlayerCard().getMainCard().at(0).getColorName() << players.at(this->holder-1).getPlayerCard().getMainCard().at(0).getNumber() << endl;
+    cout << "2. " << players.at(this->holder-1).getPlayerCard().getMainCard().at(1).getColorName() << players.at(this->holder-1).getPlayerCard().getMainCard().at(1).getNumber() << endl;
 
     cout << "Silahkan pilih pemain yang kartunya ingin anda tukar:" << endl;
     for (int i = 0; i < players.size(); i++) {
@@ -49,6 +49,6 @@ void Switch::useAbility() {
     game.modifyPlayer(players.at(target-1));
     cout << "Kedua kartu " << players.at(this->holder-1).getPlayerId() << " (" << players.at(this->holder-1).getPlayerName() << ") telah ditukar dengan " << players.at(target-1).getPlayerId() << " (" << players.at(target-1).getPlayerName() << ")" << endl;
     cout << "Kartumu sekarang:" << endl;
-    cout << "1. " << players.at(this->holder-1).getPlayerCard().getMainCard().at(0).getColorName() << endl;
-    cout << "2. " << players.at(this->holder-1).getPlayerCard().getMainCard().at(1).getColorName() << endl;
+    cout << "1. " << players.at(this->holder-1).getPlayerCard().getMainCard().at(0).getColorName() << players.at(this->holder-1).getPlayerCard().getMainCard().at(0).getNumber() << endl;
+    cout << "2. " << players.at(this->holder-1).getPlayerCard().getMainCard().at(1).getColorName() << players.at(this->holder-1).getPlayerCard().getMainCard().at(1).getNumber() << endl;
 }
