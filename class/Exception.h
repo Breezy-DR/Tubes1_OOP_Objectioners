@@ -42,6 +42,12 @@ struct InvalidCardException : public exception  {
 	}
 };
 
+struct InvalidTargetException : public exception  {
+	const char* what() const throw() {
+		return "Target invalid! Silahkan coba lagi!";
+	}
+};
+
 struct TooManyCardsException : public exception  {
 	const char* what() const throw() {
 		return "Jumlah kartu lebih dari 52 kartu! Silahkan coba lagi!";

@@ -29,7 +29,7 @@ void PlayerCard::setAbilityCard(AbilityCard *abilityCard)
 
 void PlayerCard::showCards()
 {   
-    cout << "Maincards size: " << this->getMainCard().size() << endl;
+    //cout << "Maincards size: " << this->getMainCard().size() << endl;
     cout << "Main Card: \n";
     cout << "1. " << this->getMainCard()[0].getColorName() << this->getMainCard()[0].getNumber() << endl;
     cout << "2. " << this->getMainCard()[1].getColorName() << this->getMainCard()[1].getNumber() << endl;

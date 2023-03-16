@@ -93,7 +93,9 @@ bool Player::SWITCH(){
     return false;
 }
 bool Player::ABILITYLESS(){
+    //cout << "ABILITYYY" << endl;
     if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Abilityless") == 0){
+        //cout << "masuk\n";
         playerCard.getAbilityCard()->useAbility();
         cout << "Player " << ID << " melakukan ABILITYLESS"  << endl;
         return true;

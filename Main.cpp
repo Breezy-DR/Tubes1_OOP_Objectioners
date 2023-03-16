@@ -22,7 +22,7 @@ int main(){
         }
 
         game.startGame();
-        cout << "Jumlah kartu player 1: " << game.getPlayers()[0].getPlayerCard().getMainCard().size() << endl;
+        //cout << "Jumlah kartu player 1: " << game.getPlayers()[0].getPlayerCard().getMainCard().size() << endl;
         cout << "GAME " << game.getGameCount() << endl;
         cout << "ROUND " << game.getRoundCount() << " START!" << endl;
         cout << "TURNS ORDER: ";
@@ -38,6 +38,8 @@ int main(){
                 try{
                     game.startNextTurn();
                     flag = false;
+                }catch(InvalidCommandException err){
+                    cout << err.what() << endl;
                 }catch(InvalidChoiceException err){
                     cout << err.what() << endl;
                 }
@@ -47,12 +49,16 @@ int main(){
                 if(game.getRoundCount() == 1){
                     //cout << "Pre\n"; 
                     game.distributeAbilityCard();
+                    //cout << game.getPlayers()[0].getPlayerCard().getAbilityCard()->getAbilityName() << endl;
                     //cout << "Post\n"; 
                 }
 
                 if(game.getRoundCount() != 6){
+                    cout<<"tablesize before " <<game.getTableCard().getMainCard().size()<<endl;
                     game.addTableCard();
-                    cout<<"tablesizae" <<game.getTableCard().getMainCard().size()<<endl;
+                    // vector<MainCard> newmc=game.getTableCard().getMainCard();
+                    // game.setTableCard(game.addtableVector());
+                    cout<<"tablesize after " <<game.getTableCard().getMainCard().size()<<endl;
                 }
 
                 game.startNextRound();
@@ -91,7 +97,7 @@ int main(){
                 }
 
                 flag = false;
-                if(choice.compare("2") != 0){
+                if(choice.compare("2") == 0){
                     play = false;
                 }
             }catch(InvalidChoiceException err){

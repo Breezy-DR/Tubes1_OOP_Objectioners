@@ -96,8 +96,12 @@ public:
     void startNextRound();
 
     void endGame();
+    void clearTable();
 
     void addTableCard();
+    void clearHands();
+    void setTableCard(vector<MainCard> tc);
+    vector<MainCard> addtableVector();
 
     void deckConfig();
 

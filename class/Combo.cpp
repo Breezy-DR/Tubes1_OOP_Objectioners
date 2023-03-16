@@ -53,6 +53,7 @@ vector<MainCard> Combo::getCardPool(){
 //}
 
 float Combo::value() {
+    cout<<"value cardpool: "<<this->cardPool.size()<<endl;
     if (this->checkStraightFlush()){return this->getStraightFlush();}
     else if(this->checkFourOfKind()){return this->getFourOfKind();}
     else if(this->checkFullHouse()){return this->getFullHouse();}
