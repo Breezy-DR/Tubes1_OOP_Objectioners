@@ -9,11 +9,18 @@
 #include <string>
 #include <math.h>
 #include "PlayerCard.cpp"
-//#include "MainCard.cpp"
 #include "MainDeck.cpp"
 #include "InventoryHolder.cpp"
 #include "TableCard.cpp"
+#include "Combo.cpp"
 
+#include "Ability_Cards/Abilityless.cpp"
+#include "Ability_Cards/Quadruple.hpp"
+#include "Ability_Cards/Quarter.hpp"
+#include "Ability_Cards/ReRoll.hpp"
+#include "Ability_Cards/ReverseDirection.hpp"
+#include "Ability_Cards/SwapCard.hpp"
+#include "Ability_Cards/Switch.hpp"
     
 #include "Exception.h"
 using namespace std;
@@ -46,6 +53,12 @@ public:
 
     void setPlayer(string playerName){
         players.push_back(Player(players.size() + 1, playerName));
+    }
+
+    void modifyPlayer(Player player){
+        int id = player.getPlayerId();
+        players[id - 1] = player;
+        
     }
 
     void setMainDeck(string filename){
@@ -157,26 +170,30 @@ public:
     void startNextTurn(){
         string command = getCommand();
         if(command.compare("DOUBLE") == 0){
-            Turns[turnCount - 1].DOUBLE();
+            Turns[0].DOUBLE();
+            setPoolPrize(getPoolPrize() * 2);
         }else if(command.compare("HALF") == 0){
-            Turns[turnCount - 1].HALF();
+            Turns[0].HALF();
+            setPoolPrize(floor(getPoolPrize() / 2));
+            if(getPoolPrize() < 1){
+                setPoolPrize(1);
+            }
         }else if(command.compare("NEXT") == 0){
-            cout << "Player " << Turns[turnCount - 1].getPlayerId() << " melakukan NEXT"  << endl;
+            cout << "Player " << Turns[0].getPlayerId() << " melakukan NEXT"  << endl;
         }else if(command.compare("QUADRUPLE") == 0){
-            Turns[turnCount - 1].QUADRUPLE();
+            Turns[0].QUADRUPLE();
         }else if(command.compare("QUARTER") == 0){
-            Turns[turnCount - 1].QUARTER();
+            Turns[0].QUARTER();
         }else if(command.compare("REVERSE") == 0){
-            Turns[turnCount - 1].REVERSE();
+            Turns[0].REVERSE();
         }else if(command.compare("SWAPCARD") == 0){
-            Turns[turnCount - 1].SWAPCARD();
+            Turns[0].SWAPCARD();
         }else if(command.compare("SWITCH") == 0){
-            Turns[turnCount - 1].SWITCH();
+            Turns[0].SWITCH();
         }else{
-            Turns[turnCount - 1].ABILITYLESS();
+            Turns[0].ABILITYLESS();
         }
-        turnCount++;
-        //Turns[turnCount].
+        Turns.erase(Turns.begin());
     }
 
     //Initiate the next round
@@ -192,11 +209,26 @@ public:
 
     void endGame(){
         cout << "Ronde terakhir berakhir!\nSaatnya menunjukkan kartu kalian!" << endl;
+        vector<Combo> combos;
+        Combo max;
+        int maxID;
         for(int i = 0; i < 7; i++){
             cout << "Kartu " << players[i].getPlayerName() << endl;
             players[i].getPlayerCard().showCards();
+            combos.push_back(Combo(table, players[i].getPlayerCard()));
+            cout << "Combo Value: " << combos[i].value() << endl;
+            if(i == 0){
+                max = combos[i];
+                maxID = players[i].getPlayerId();
+            }else if(combos[i] > max){
+                max = combos[i];
+                maxID = players[i].getPlayerId();
+            }
         }
-        cout << "Poin hadiah telah diberikan kepada pemenang." << endl;
+
+        players[maxID - 1].setScore(getPoolPrize());
+
+        cout << "Poin hadiah telah diberikan kepada " << players[maxID - 1].getPlayerName() << "." << endl;
     }
 
     void addTableCard(){
@@ -243,6 +275,15 @@ public:
         }
     }
 
+    void showLeaderboard(){
+        cout << "Leaderboard: " << endl;
+        vector<Player> temp = players;
+        for(int i = 0; i < 7; i++){
+            cout << i + 1 << ". " << players[i].getPlayerName() << ": " << players[i].getScore() << endl;
+            
+        }
+    }
+
 
     //Get the next line of turns for the next round
     void roundRobin(){
@@ -280,7 +321,7 @@ public:
     }
 
     Player getCurrentPlayer(){
-        return Turns[turnCount - 1];        
+        return Turns[0];        
 
     }
 
