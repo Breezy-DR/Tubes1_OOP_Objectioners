@@ -13,7 +13,7 @@ class ArrayComparer {
             this->elements = new T[CAPACITY];
             this->nEff = 0;
         }
-        ~Queue() {}
+        ~ArrayComparer() {}
         void enqueue(const T q){
             if(this->nEff == CAPACITY){
                 throw "Array is full";
