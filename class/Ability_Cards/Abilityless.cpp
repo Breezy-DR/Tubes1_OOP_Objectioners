@@ -41,6 +41,11 @@ void Abilityless::useAbility() {
             }
         }
         cin >> target;
+        while (target == this->holder) {
+            cout << "Masukan salah! Silahkan masukkan kembali";
+            cin >> target;
+        }
+        
         target--;
         this->isUsed = true;
         if (players.at(target).getPlayerCard().getAbilityCard()->getIsUsed()) {
@@ -48,6 +53,7 @@ void Abilityless::useAbility() {
         }
         else {
             players.at(target).getPlayerCard().getAbilityCard()->setIsDisabled(true);
+            game.modifyPlayer(players.at(target));
             cout << "kartu pemain " << players.at(target).getPlayerId() << "(" << players.at(target).getPlayerName() << ") telah terdisable" << endl;
         }
     }
