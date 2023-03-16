@@ -1,11 +1,4 @@
 #include "class/Game.hpp"
-#include "class/Ability_Cards/Abilityless.cpp"
-#include "class/Ability_Cards/Quadruple.cpp"
-#include "class/Ability_Cards/Quarter.cpp"
-#include "class/Ability_Cards/ReRoll.cpp"
-#include "class/Ability_Cards/ReverseDirection.cpp"
-#include "class/Ability_Cards/SwapCard.cpp"
-#include "class/Ability_Cards/Switch.cpp"
 using namespace std;
 
 int main(){
@@ -19,6 +12,8 @@ int main(){
             cin >> name;
             game.setPlayer(name);
         }
+
+        deckConfig(game);
 
         game.startGame();
         cout << "GAME " << game.getGameCount() << endl;

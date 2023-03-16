@@ -7,13 +7,14 @@
 #include "../Game.hpp"
 
 
-class AbilityCard : public Card, Ability {
+class AbilityCard : public Card, public Ability {
 protected:
     bool isDisabled;
     bool isUsed;
 public:
     AbilityCard();
     AbilityCard(int _holder, string _abilityname, string _abilitydescription);
+    
     ~AbilityCard();
     virtual void useAbility() = 0;
     float value();

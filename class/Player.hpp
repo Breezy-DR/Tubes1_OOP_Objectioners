@@ -27,6 +27,7 @@ public:
 
     void setPlayerCard(PlayerCard playerCard){ this->playerCard=playerCard;}
     void setCanUseAbility(bool isCanUse){ this->isCanUseAbility=isCanUse;}
+    void setScore(long long int scr){this->score = scr;}
     int getPlayerId(){return this->ID;}
     PlayerCard getPlayerCard(){return this->playerCard;}
     string getPlayerName(){return this->playerName;}
@@ -59,8 +60,12 @@ public:
     void QUARTER(){
         cout << "Player " << ID << " melakukan QUARTER"  << endl;
     }
-    void REVERSE(){
+    bool REVERSE(){
         cout << "Player " << ID << " melakukan REVERSE"  << endl;
+        if(getIsCanUse() && playerCard.getAbilityCard()->getAbilityName().compare("Reverse Direction")){
+            playerCard.getAbilityCard()->useAbility();
+            return true;
+        }
     }
     void SWAPCARD(){
         cout << "Player " << ID << " melakukan SWAP CARD"  << endl;
