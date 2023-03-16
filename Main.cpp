@@ -56,9 +56,8 @@ int main(){
                 if(game.getRoundCount() != 6){
                     cout<<"tablesize before " <<game.getTableCard().getMainCard().size()<<endl;
                     game.addTableCard();
-                    // vector<MainCard> newmc=game.getTableCard().getMainCard();
-                    // game.setTableCard(game.addtableVector());
-                    cout<<"tablesize after " <<game.getTableCard().getMainCard().size()<<endl;
+                    cout << "AFTER ROUNDCOUNT: " << game.getTable().getMainCard().size() << endl;
+                    game.getTable().showCards();
                 }
 
                 game.startNextRound();

@@ -24,7 +24,7 @@ class Combo : public ValueHolder {
     public:
         Combo();
 //        Combo(int _val, int _comboNum);
-        Combo(TableCard,PlayerCard);
+        Combo(const TableCard&,PlayerCard);
         ~Combo();
 //        int getCombo();
 //        void setCombo(int comboNum);

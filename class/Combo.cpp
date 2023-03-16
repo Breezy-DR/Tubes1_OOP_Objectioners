@@ -14,16 +14,29 @@ Combo::Combo() : ValueHolder() {
 //Combo::Combo(int _val, int _comboNum) : ValueHolder(_val) {
 //    this->comboNum = _comboNum;
 //}
-Combo::Combo(TableCard Table, PlayerCard playerCard) {
+Combo::Combo(const TableCard& Table, PlayerCard playerCard) {
     this->playerCard=playerCard;
     this->tableCard=Table;
     vector<MainCard> mc;
-    cout<<"tablecard"<<Table.getMainCard().size()<<endl;
-    for (int i = 0; i < Table.getMainCard().size(); ++i) {
+    cout<<"CONSTRUCTOR\n";
+    cout<<"tablecard "<<Table.getMainCard().size()<<endl;
+    cout<<"TABLECARDS: ";
+    for (int i = 0; i < Table.getMainCard().size(); i++) {
+        cout<<"<"<<Table.getMainCard().at(i).getNumber()<<","<<Table.getMainCard().at(i).getColorName()<<"> ";
+    }
+    cout<<"PLAYERCARDS: ";
+    cout<<"<"<<playerCard.getMainCard().at(0).getNumber()<<","<<playerCard.getMainCard().at(0).getColorName()<<"> ";
+    cout<<"<"<<playerCard.getMainCard().at(1).getNumber()<<","<<playerCard.getMainCard().at(1).getColorName()<<"> ";
+    cout<<endl;
+    for (int i = 0; i < Table.getMainCard().size(); i++) {
         mc.push_back(Table.getMainCard().at(i));
     }
     mc.push_back(playerCard.getMainCard().at(0));mc.push_back(playerCard.getMainCard().at(1));
     this->cardPool=mc;
+//    for (int i = 0; i < mc.size(); ++i) {
+//        cout<<"<"<<mc.at(i).getNumber()<<","<<"> ";
+//    }
+//    cout<<endl;
     // for (int i = 0; i < mc.size(); i++)
     // {
     //     cout<<mc.at(i).value()<<" ";
@@ -78,13 +91,15 @@ bool Combo::operator==(Combo c2) {
 }
 
 bool Combo::checkStraightFlush(){
-    cout<<this->cardPool.size();
+//    cout<<this->cardPool.size();
+//    cout<<"sf in\n";
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
-    for (int i = 0; i < sorted.size(); i++)
-    {
-        cout<<sorted.at(i).value()<<" ";
-    }
-    cout<<endl;
+//    cout<<"sf sorted\n";
+//    for (int i = 0; i < sorted.size(); i++)
+//    {
+//        cout<<sorted.at(i).value()<<" ";
+//    }
+//    cout<<endl;
     for (int i = sorted.size()-1; i >= 4; i--){
         for (int j = i-1; j >=3; j--) {
             if (sorted.at(i).getNumber()==sorted.at(j).getNumber()+1 && sorted.at(i).getColor()==sorted.at(j).getColor()){
@@ -104,6 +119,7 @@ bool Combo::checkStraightFlush(){
             }
         }
     }
+//    cout<<"end\n";
     return false;
 }
 
@@ -122,17 +138,22 @@ bool Combo::checkFourOfKind(){
 //        if (isFourof){return true;}
 //    }
 //    return isFourof;
+//    cout<<"fok in\n";
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
-    for (int i = sorted.size()-1; i >=3; ++i) {
+//    cout<<"fok sorted\n";
+    for (int i = sorted.size()-1; i >=3; i--) {
         if (sorted.at(i).getNumber()==sorted.at(i-1).getNumber()&&sorted.at(i).getNumber()==sorted.at(i-2).getNumber()&&sorted.at(i).getNumber()==sorted.at(i-3).getNumber()){
             return true;
         }
     }
+//    cout<<"end\n";
     return false;
 }
 bool Combo::checkFullHouse(){
+//    cout<<"fh in\n";
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
-    for (int i = sorted.size()-1; i >=2; ++i) {
+//    cout<<"fh sorted\n";
+    for (int i = sorted.size()-1; i >=2; i--) {
         if (sorted.at(i).getNumber()==sorted.at(i-1).getNumber()&&sorted.at(i).getNumber()==sorted.at(i-2).getNumber()){
             for (int j = i-3; j >= 1; j--) {
                 if (sorted.at(j).getNumber()==sorted.at(j-1).getNumber()){
@@ -147,6 +168,7 @@ bool Combo::checkFullHouse(){
             }
         }
     }
+//    cout<<"end\n";
     return false;
 }
 bool Combo::checkFlush(){
@@ -168,7 +190,9 @@ bool Combo::checkFlush(){
     vector<MainCard> greenCards;
     vector<MainCard> yellowCards;
     vector<MainCard> redCards;
+//    cout<<"f in\n";
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
+//    cout<<"f sorted\n";
     for (int i = sorted.size()-1; i >= 0; i--) {
         if (sorted.at(i).getColor()==Blue){blueCards.push_back(sorted.at(i));}
         else if (sorted.at(i).getColor()==Green){greenCards.push_back(sorted.at(i));}
@@ -178,10 +202,13 @@ bool Combo::checkFlush(){
             return true;
         }
     }
+//    cout<<"end\n";
     return false;
 }
 bool Combo::checkStraight(){
+//    cout<<"s in\n";
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
+//    cout<<"s sorted\n";
     for (int i = sorted.size()-1; i >= 4; i--){
         for (int j = i-1; j >=3; j--) {
             if (sorted.at(i).getNumber()==sorted.at(j).getNumber()+1){
@@ -201,16 +228,20 @@ bool Combo::checkStraight(){
             }
         }
     }
+//    cout<<"end\n";
     return false;
 }
 
 bool Combo::checkThreeOfKind(){
+//    cout<<"tok in\n";
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
+//    cout<<"tok sorted\n";
     for (int i = sorted.size()-1; i >=2; i--) {
         if (sorted.at(i).getNumber()== sorted.at(i-1).getNumber()&&sorted.at(i).getNumber()==sorted.at(i-2).getNumber()){
             return true;
         }
     }
+//    cout<<"end\n";
     return false;
 }
 
@@ -221,7 +252,9 @@ bool Combo::checkTwoPair(){
 //        arr[sorted.at(i)-1]++;
 //    }
 //    return count(arr,arr+13,2)==2;
+//    cout<<"tp in\n";
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
+//    cout<<"tp sorted\n";
     for (int i = sorted.size()-1; i >= 3; i--) {
         if (sorted.at(i).getNumber()==sorted.at(i-1).getNumber()){
             for (int j = i-2; j >=1; j--) {
@@ -231,15 +264,19 @@ bool Combo::checkTwoPair(){
             }
         }
     }
+//    cout<<"end\n";
     return false;
 }
 bool Combo::checkPair(){
+//    cout<<"p in\n";
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
+//    cout<<"p sorted\n";
     for (int i = sorted.size()-1; i >=1; i--) {
         if (sorted.at(i).getNumber()== sorted.at(i-1).getNumber()){
             return true;
         }
     }
+//    cout<<"end\n";
     return false;
 }
 
@@ -335,7 +372,7 @@ float Combo::getFlush(){
 
 float Combo::getFullHouse(){
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
-    for (int i = sorted.size()-1; i >=2; ++i) {
+    for (int i = sorted.size()-1; i >=2; i--) {
         if (sorted.at(i).getNumber()==sorted.at(i-1).getNumber()&&sorted.at(i).getNumber()==sorted.at(i-2).getNumber()){
             for (int j = i-3; j >= 1; j--) {
                 if (sorted.at(j).getNumber()==sorted.at(j-1).getNumber()){
@@ -355,7 +392,7 @@ float Combo::getFullHouse(){
 
 float Combo::getFourOfKind(){
     vector<MainCard> sorted= (new ArrayComparer<MainCard>(this->cardPool))->sort();
-    for (int i = sorted.size()-1; i >=3; ++i) {
+    for (int i = sorted.size()-1; i >=3; i--) {
         if (sorted.at(i).getNumber()==sorted.at(i-1).getNumber()&&sorted.at(i).getNumber()==sorted.at(i-2).getNumber()&&sorted.at(i).getNumber()==sorted.at(i-3).getNumber()){
             return (sorted.at(i).value()+sorted.at(i-1).value()+sorted.at(i-2).value()+sorted.at(i-3).value())+32.08;
         }

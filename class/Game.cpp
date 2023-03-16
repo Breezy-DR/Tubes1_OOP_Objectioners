@@ -335,6 +335,8 @@ void Game::endGame(){
         players[i].getPlayerCard().showCards();
         //cout << "Error combo loop\n";
         combos.push_back(Combo(table, players[i].getPlayerCard()));
+        cout << "COMBO TABLE SIZE AFTER: " << combos[i].getTableCard().getMainCard().size() << endl;
+
     }
     //cout << "Error combo\n";
     //cout << "Combo size: " << combos.size() << endl;
@@ -361,9 +363,13 @@ void Game::addTableCard(){
     // table = table + mainDeck.draw();
     vector<MainCard> newmc=this->table.getMainCard();
     newmc.push_back(mainDeck.draw());
-    cout<<"before"<<this->table.getMainCard().size()<<endl;
-    this->table.setMainCards(newmc);
-    cout<<"after"<<this->table.getMainCard().size()<<endl;
+    cout<<"before"<<table.getMainCard().size()<<endl;
+    setTableCard(newmc);
+    cout<<"after"<<table.getMainCard().size()<<endl;
+}
+
+void Game::setTableCard(vector<MainCard> mc){
+    table.setMainCards(mc);
 }
 
 void Game::setTableCard(vector<MainCard> tc){
@@ -501,22 +507,21 @@ void Game::distributeAbilityCard(){
 void Game::showLeaderboard(){
     cout << "Leaderboard: " << endl;
     vector<Player> temp = players;
-    vector<Player> sorted;
+    vector<Player> sorted=temp;
 
     //Sort
-    for(int i = 0; i < 7; i++){
-        Player max = temp[0];
-        int pos = 0;
-        for(int j = 0; j < temp.size(); j++){
-            if(players[j].getScore() >= max.getScore()){
-                max = players[j];
-                pos = j;
-            }
-        }
-        sorted.push_back(max);
-        temp.erase(temp.begin() + pos);
-    }
-
+//    for(int i = 0; i < 7; i++){
+//        Player max = temp[0];
+//        int pos = 0;
+//        for(int j = 0; j < temp.size(); j++){
+//            if(players[j].getScore() >= max.getScore()){
+//                max = players[j];
+//                pos = j;
+//            }
+//        }
+//        sorted.push_back(max);
+//        temp.erase(temp.begin() + pos);
+//    }
     for(int i = 0; i < 7; i++){
         cout << i + 1 << ". " << sorted[i].getPlayerName() << ": " << players[i].getScore() << endl;
     }
@@ -588,6 +593,6 @@ bool Game::checkPlayersScore(){
     return false;
 }
 
-TableCard Game::getTableCard(){
-    return this->table;
+TableCard Game::getTable(){
+    return table;
 }

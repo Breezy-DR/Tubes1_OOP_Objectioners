@@ -36,13 +36,13 @@ private:
     static bool reversed;
     static long long int poolPrize;
     static MainDeck mainDeck;
-    static TableCard table;
 
     int startingPlayerID;
     static int turnCount;
     static int roundCount;
     static int gameCount;
 public:
+    static TableCard table;
     Game();
 
     ~Game();
@@ -117,7 +117,9 @@ public:
 
     bool checkPlayersScore();
 
-    TableCard getTableCard();
+    TableCard getTable();
+
+    void setTableCard(vector<MainCard> mc);
 
 };
 
