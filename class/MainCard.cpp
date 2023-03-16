@@ -4,6 +4,10 @@ MainCard::MainCard() : Card() {
     this->oneCard = make_pair(0, 0);
 }
 
+MainCard::MainCard(const MainCard& mc){
+    this->oneCard = mc.oneCard;
+}
+
 MainCard::MainCard(int _color, int _number) : Card() {
     this->oneCard = make_pair(_color, _number);
 }
@@ -14,13 +18,13 @@ int MainCard::getColor() const {
     return this->oneCard.first;
 }
 
-int MainCard::getNumber() const {
+int MainCard::getNumber(){
     return this->oneCard.second;
 }
 
 ostream &operator<<(ostream &os, MainCard mc) {
-    os << "Holder   : " << mc.getHolder() << endl;
-    os << "Color    : " << mc.getColor() << endl;
+    //os << "Holder   : " << mc.getHolder() << endl;
+    os << "Color    : " << mc.getColorName() << endl;
     os << "Number   : " << mc.getNumber() << endl;
     return os;
 }

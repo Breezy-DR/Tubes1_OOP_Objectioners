@@ -13,6 +13,7 @@ public:
     PlayerCard();
     PlayerCard(const PlayerCard &);
     ~PlayerCard();
+    PlayerCard(vector<MainCard> mc);
     AbilityCard *getAbilityCard();
     void setAbilityCard(AbilityCard* abilityCard);
     void showCards();

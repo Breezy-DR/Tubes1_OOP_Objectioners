@@ -15,7 +15,7 @@ void ReverseDirection::useAbility() {
         throw err2;
     }    
 
-    Game game;
-    // game.set
-    this->isUsed = true;
+    // Game game;
+    // // game.set
+    // this->isUsed = true;
 }

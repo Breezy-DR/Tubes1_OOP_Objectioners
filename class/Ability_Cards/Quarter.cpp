@@ -15,13 +15,13 @@ void Quarter::useAbility() {
         throw err2;
     }
     this->isUsed = true;
-    Game game;
-    long long newPrize = game.getPoolPrize() / 4;
-    if (newPrize < 1) {
-        cout << "Prize pool bernilai paling kecil 1" << endl;
-        game.setPoolPrize(1);
-    }
-    else {
-        game.setPoolPrize(newPrize);
-    }
+    // Game game;
+    // long long newPrize = game.getPoolPrize() / 4;
+    // if (newPrize < 1) {
+    //     cout << "Prize pool bernilai paling kecil 1" << endl;
+    //     game.setPoolPrize(1);
+    // }
+    // else {
+    //     game.setPoolPrize(newPrize);
+    // }
 }

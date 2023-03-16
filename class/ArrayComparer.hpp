@@ -62,7 +62,7 @@ class ArrayComparer {
                     }
                 }
             }
-            return this;
+            return this->elements;
         }
 
 };

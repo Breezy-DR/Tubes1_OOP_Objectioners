@@ -150,6 +150,7 @@ int MainDeck::getSize(){
 
 MainCard MainDeck::draw(){
     MainCard drew = Cards.top();
+    cout << "Color : " << drew.getColorName() << " number: " << drew.getNumber() << endl;
     Cards.pop();
     size--;
     return drew;

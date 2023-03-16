@@ -15,8 +15,8 @@ void Quadruple::useAbility() {
         throw err2;
     }
 
-    Game game;
-    long long newPrize = game.getPoolPrize() * 4;
-    game.setPoolPrize(newPrize);
-    this->isUsed = true;
+    // Game game;
+    // long long newPrize = game.getPoolPrize() * 4;
+    // game.setPoolPrize(newPrize);
+    // this->isUsed = true;
 }

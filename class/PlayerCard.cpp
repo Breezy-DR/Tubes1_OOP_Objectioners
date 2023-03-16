@@ -2,6 +2,10 @@
 
 PlayerCard::PlayerCard() {}
 
+PlayerCard::PlayerCard(vector<MainCard> mc) {
+    this->setMainCards(mc);
+}
+
 PlayerCard::~PlayerCard() {}
 
 PlayerCard::PlayerCard(const PlayerCard &pc)
@@ -24,9 +28,11 @@ void PlayerCard::setAbilityCard(AbilityCard *abilityCard)
 }
 
 void PlayerCard::showCards()
-{
-    cout << "Main card: \n1. " << this->getMainCard().at(0).getColorName() << "\n";
-    cout << "2. " << this->getMainCard().at(1).getColorName() << "\n";
+{   
+    cout << "Maincards size: " << this->getMainCard().size() << endl;
+    cout << "Main Card: \n";
+    cout << "1. " << this->getMainCard()[0].getColorName() << this->getMainCard()[0].getNumber() << endl;
+    cout << "2. " << this->getMainCard()[1].getColorName() << this->getMainCard()[1].getNumber() << endl;
     //    cout<<"Ability card: \n"<< this->getAbilityCard()->get
 }
 

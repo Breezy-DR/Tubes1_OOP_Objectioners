@@ -2,6 +2,9 @@
 
 TableCard::TableCard() {}
 
+TableCard::~TableCard() {}
+
+
 TableCard::TableCard(const TableCard &tc)
 {
     for (int i = 0; i < tc.mainCard.size(); ++i)
@@ -44,6 +47,6 @@ TableCard &TableCard::operator=(const TableCard &tc)
     return *this;
 }
 
-vector<MainCard> InventoryHolder::getMainCard() const{
+vector<MainCard> TableCard::getMainCard() const{
     return this->mainCard;
 }

@@ -15,6 +15,7 @@ protected:
 public:
     InventoryHolder() {}
     InventoryHolder(const InventoryHolder &) {}
+    void setMainCards(vector<MainCard>);
     virtual ~InventoryHolder() {}
     virtual void showCards() = 0;
     virtual vector<MainCard> getMainCard() const;

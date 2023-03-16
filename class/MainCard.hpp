@@ -20,7 +20,7 @@ public:
     ~MainCard();
 
     int getColor() const;
-    int getNumber() const;
+    int getNumber();
     friend ostream &operator<<(ostream &os, MainCard mc);
     bool operator>(MainCard);
     bool operator<(MainCard);

@@ -1,4 +1,5 @@
 #include "class/Game.hpp"
+//#include <iostream>
 using namespace std;
 
 int main(){
@@ -13,16 +14,32 @@ int main(){
             game.setPlayer(name);
         }
 
-        deckConfig(game);
+        game.deckConfig();
+        cout << "DECK TEST\n";
+        for(int i = 0; i < 52; i++){
+            MainCard test = game.getMainDeck().draw();
+            //cout << "Color: " << test.getColorName() << " Number: " << test.getNumber() << endl;
+        }
 
         game.startGame();
+        cout << "Jumlah kartu player 1: " << game.getPlayers()[0].getPlayerCard().getMainCard().size() << endl;
         cout << "GAME " << game.getGameCount() << endl;
+        cout << "ROUND " << game.getRoundCount() << " START!" << endl;
+        cout << "TURNS ORDER: ";
+        for(int i = 0; i < 7; i++){
+            cout << game.getTurns()[i].getPlayerId() << " ";
+        }
+        cout << endl;
+        
         while(!game.checkPlayersScore()){
-            cout << "ROUND " << game.getRoundCount() << " START!" << endl;
+            cout << "Sisa kartu pada deck: " << game.getMainDeck().getSize() << endl;
             game.startNextTurn();
             if(game.getTurnCount() > 7){
+                cout << "AKHIR RONDE\n";
                 if(game.getRoundCount() == 1){
+                    //cout << "Pre\n"; 
                     game.distributeAbilityCard();
+                    //cout << "Post\n"; 
                 }
 
                 if(game.getRoundCount() != 6){
@@ -36,9 +53,16 @@ int main(){
                         game.showLeaderboard();
                         cout << "Score pemain belum ada yang mencapai 2^32, permainan berlanjut!!" << endl;
                         cout << "GAME " << game.getGameCount() << endl;
-                        deckConfig(game);
+                        game.checkPlayersScore();
                     }
                 }
+                cout << "ROUND " << game.getRoundCount() << " START!" << endl;
+                //cout << "TURNS SIZE: " << game.getTurns().size() << endl;
+                cout << "TURNS ORDER: ";
+                for(int i = 0; i < 7; i++){
+                    cout << game.getTurns()[i].getPlayerId() << " ";
+                }
+                cout << endl;
             }
         }
 
@@ -70,42 +94,4 @@ int main(){
 
 
     return 0;
-}
-
-void deckConfig(Game game){
-    string option = "";
-    while(option.compare("1") != 0 && option.compare("2") != 0){
-        try{
-            cout << "Bagaimana anda mau mengatur deck permainan?(Input 1 / 2)\n1)Random shuffle\n2)Read text file\n> ";
-            cin >> option;
-            if(option.compare("1") != 0 && option.compare("2") != 0){
-                throw InvalidChoiceException();
-            }
-        }catch(InvalidChoiceException err){
-            cout << err.what() << endl;
-        }
-    }
-
-    if(option.compare("2") == 0){
-        string filename;
-        bool flag = true;
-        while(flag){
-            try{
-                cout << "Masukkan directory text file yang akan digunakan:\n> ";
-                cin >> filename;
-                game.setMainDeck(filename);
-                flag = false;
-            }catch(InvalidFileException err){
-                cout << err.what() << endl;
-            }catch(InvalidCardException err){
-                cout << err.what() << endl;
-            }catch(TooManyCardsException err){
-                cout << err.what() << endl;
-            }catch(TooFewCardsException err){
-                cout << err.what() << endl;
-            }catch(DuplicateCardsException err){
-                cout << err.what() << endl;
-            }
-        }  
-    }
 }
