@@ -24,8 +24,8 @@ class Combo : public ValueHolder {
 //        Combo(int _val, int _comboNum);
         Combo(TableCard,PlayerCard);
         ~Combo();
-        int getCombo();
-        void setCombo(int comboNum);
+//        int getCombo();
+//        void setCombo(int comboNum);
         float value();
 
         vector<MainCard> getCardPool;

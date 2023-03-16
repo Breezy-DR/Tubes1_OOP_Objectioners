@@ -27,9 +27,9 @@ Combo::Combo(TableCard tableCard, PlayerCard playerCard) {
 
 Combo::~Combo() {}
 
-int Combo::getCombo() {
+//int Combo::getCombo() {
 //    return this->comboNum;
-}
+//}
 
 TableCard Combo::getTableCard(){
     return this->tableCard;
@@ -42,9 +42,9 @@ vector<MainCard> Combo::getCardPool(){
     return this->cardPool;
 }
 
-void Combo::setCombo(int comboNum) {
-    this->comboNum = comboNum;
-}
+//void Combo::setCombo(int comboNum) {
+//    this->comboNum = comboNum;
+//}
 
 float Combo::value() {
     if (this->checkStraightFlush()){return this->getStraightFlush();}
