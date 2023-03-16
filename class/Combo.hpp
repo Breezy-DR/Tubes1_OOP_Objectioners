@@ -5,6 +5,7 @@
 #include "TableCard.hpp"
 #include "MainCard.hpp"
 #include "ValueHolder.hpp"
+#include "ArrayComparer.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
