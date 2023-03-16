@@ -4,6 +4,7 @@
 #include "InventoryHolder.hpp"
 #include "Exception.h"
 #include <vector>
+#pragma once
 
 class PlayerCard : public InventoryHolder
 {

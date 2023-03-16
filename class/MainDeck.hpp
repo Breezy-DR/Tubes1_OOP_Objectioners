@@ -3,6 +3,7 @@
 
 #include <stack>
 #include "MainCard.cpp"
+#pragma once
 
 class MainDeck
 {

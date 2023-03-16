@@ -1,7 +1,7 @@
 #ifndef __QUADRUPLE_HPP__
 #define __QUADRUPLE_HPP__
 #include "AbilityCard.cpp"
-
+#pragma once
 
 class Quadruple : public AbilityCard {
 private:

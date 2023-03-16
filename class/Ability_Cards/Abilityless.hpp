@@ -1,7 +1,7 @@
 #ifndef __ABILITYLESS_HPP__
 #define __ABILITYLESS_HPP__
-#include "AbilityCard.cpp"
-
+#include "AbilityCard.hpp"
+#pragma once
 
 class Abilityless : public AbilityCard {
 private:

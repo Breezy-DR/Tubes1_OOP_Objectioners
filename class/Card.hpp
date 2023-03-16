@@ -6,6 +6,8 @@
 #define TUBES1_OOP_OBJECTIONERS_CARD_HPP
 
 #include "ValueHolder.hpp"
+#pragma once
+
 
 enum Owner {None = -3, abilityDeck = -2, mainDeck = -1, Table = 0, p1 = 1, p2 = 2, p3 = 3, p4 = 4, p5 = 5, p6 = 6, p7 = 7};
 

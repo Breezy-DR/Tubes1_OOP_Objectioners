@@ -3,6 +3,7 @@
 
 #include "InventoryHolder.hpp"
 #include <vector>
+#pragma once
 
 class TableCard : public InventoryHolder
 {

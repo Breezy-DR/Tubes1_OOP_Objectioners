@@ -26,6 +26,7 @@
 #include "Ability_Cards/Switch.cpp"
     
 #include "Exception.h"
+#pragma once
 using namespace std;
 
 class Game{

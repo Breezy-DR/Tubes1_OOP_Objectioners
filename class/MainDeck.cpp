@@ -142,6 +142,7 @@ MainDeck::~MainDeck(){}
 MainDeck& MainDeck::operator=(const MainDeck& other){
     this->size = other.size;
     this->Cards = other.Cards;
+    return *this;
 }
 
 int MainDeck::getSize(){

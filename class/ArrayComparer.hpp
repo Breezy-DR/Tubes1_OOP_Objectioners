@@ -4,6 +4,7 @@
 //#define CAPACITY 13
 #include <vector>
 using namespace std;
+#pragma once
 
 template <class T>
 class ArrayComparer {

@@ -6,6 +6,7 @@
 #include <utility>
 #include <string>
 using namespace std;
+#pragma once
 
 enum Colors {Green = 0, Blue = 1, Yellow = 2, Red = 3};
 

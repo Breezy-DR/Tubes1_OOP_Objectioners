@@ -4,6 +4,7 @@
 #include "Ability.hpp"
 #include "../Card.hpp"
 #include "../Exception.h"
+#pragma once
 //#include "../Game.hpp"
 
 

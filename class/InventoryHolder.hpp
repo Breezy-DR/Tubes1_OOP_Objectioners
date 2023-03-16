@@ -5,6 +5,7 @@
 #include <vector>
 #include "MainCard.hpp"
 #include "Ability_Cards/AbilityCard.hpp"
+#pragma once
 using namespace std;
 
 class InventoryHolder

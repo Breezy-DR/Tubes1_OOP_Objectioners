@@ -2,6 +2,7 @@
 #define __PLAYEXCEPTION_H__
 
 #include <exception>
+#pragma once
 using namespace std;
 
 

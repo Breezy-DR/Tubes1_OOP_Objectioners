@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+#pragma once
 
 //enum Combos {None = 0, HighCard = 1, Pair = 2, TwoPair = 3,
 //        ThreeofAKind = 4, Straight = 5, Flush = 6,

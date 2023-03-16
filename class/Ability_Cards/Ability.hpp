@@ -1,5 +1,6 @@
 #ifndef __ABILITY_HPP__
 #define __ABILITY_HPP__
+#pragma once
 #include <string>
 using namespace std;
 
