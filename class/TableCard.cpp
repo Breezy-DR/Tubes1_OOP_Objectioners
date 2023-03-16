@@ -43,3 +43,7 @@ TableCard &TableCard::operator=(const TableCard &tc)
     }
     return *this;
 }
+
+vector<MainCard> InventoryHolder::getMainCard() const{
+    return this->mainCard;
+}

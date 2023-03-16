@@ -18,10 +18,11 @@ Combo::Combo(TableCard tableCard, PlayerCard playerCard) {
     this->playerCard=playerCard;
     this->tableCard=tableCard;
     vector<MainCard> mc;
-    for (int i = 0; i < tableCard.getMainTableCard().size(); ++i) {
-        mc.push_back(tableCard.getMainTableCard().at(i));
+    for (int i = 0; i < tableCard.getMainCard().size(); ++i) {
+        mc.push_back(tableCard.getMainCard().at(i));
+        tableCard.
     }
-    mc.push_back(playerCard.getMainPlayerCard().at(0));mc.push_back(playerCard.getMainPlayerCard().at(1));
+    mc.push_back(playerCard.getMainCard().at(0));mc.push_back(playerCard.getMainCard().at(1));
     this->cardPool=mc;
 }
 

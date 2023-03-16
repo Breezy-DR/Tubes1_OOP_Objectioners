@@ -14,6 +14,7 @@ public:
     TableCard operator+(MainCard mc);
     friend TableCard operator+(MainCard, const TableCard &);
     TableCard &operator=(const TableCard &);
+    vector<MainCard> getMainCard() const;
 };
 
 #endif
