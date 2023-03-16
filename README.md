@@ -15,7 +15,7 @@ Ini adalah repository untuk Tubes 1 IF2210 2022/2023. Program ini memanfaatkan O
 4. Jika kompilasi berhasil, dihasilkan file executable ``Main``
 
 ## Cara menjalankan program
-1. Pastikan telah terdapat file executable hasil kompilasi
+1. Pastikan telah terdapat file executable hasil kompilasi dengan nama  ``Main``
 2. Buka terminal
 3. Ketik ``./Main`` dan tekan enter
 
