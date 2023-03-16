@@ -81,8 +81,8 @@ int main(){
         }
 
         cout << "Permainan berakhir!\nLeaderboard akhir: " << endl;
-        //Tunjukkan leaderboard
-        cout << "Permainan dimenangkan oleh {pemenang}" << endl;
+        game.showLeaderboard();
+        //cout << "Permainan dimenangkan oleh " << endl;
         bool flag = true;
         while(flag){
             try{
