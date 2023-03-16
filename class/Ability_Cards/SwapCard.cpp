@@ -28,6 +28,11 @@ void SwapCard::useAbility() {
     }
 
     cin >> target1;
+    while (target1 == this->holder || target1 < 1 || target1 > 7) {
+        cout << "Masukan salah, silahkan masukkan kembali" << endl;
+        cin >> target1;
+    }
+
     cout << "Silahkan pilih pemain lainnya yang kartunya anda ingin tukar:" << endl;
     for (int i = 0; i < players.size(); i++) {
         if (players.at(i).getPlayerId() != this->holder && players.at(i).getPlayerId() != target1) {
@@ -35,7 +40,7 @@ void SwapCard::useAbility() {
         }
     }
     cin >> target2;
-    while (target2 == target1 || target2 == this->holder) {
+    while (target2 == target1 || target2 == this->holder || target2 || target2 < 1 || target2 > 7) {
         cout << "Masukan salah, silahkan masukkan kembali" << endl;
         cin >> target2;
     }

@@ -16,6 +16,6 @@ void ReverseDirection::useAbility() {
     }    
 
     Game game;
-    // game.set
+    game.toggleReverse();
     this->isUsed = true;
 }
