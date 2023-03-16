@@ -2,6 +2,7 @@
 #define PLAYERCARD_HPP
 
 #include "InventoryHolder.hpp"
+#include "Exception.h"
 #include <vector>
 
 class PlayerCard : public InventoryHolder
@@ -22,6 +23,7 @@ public:
     PlayerCard operator+(AbilityCard *ac);
     friend PlayerCard operator+(AbilityCard*, const PlayerCard &);
     PlayerCard &operator=(const PlayerCard &);
+    PlayerCard operator-(int num);
 };
 
 #endif
