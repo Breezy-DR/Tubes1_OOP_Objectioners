@@ -15,7 +15,7 @@ int main(){
         }
 
         game.deckConfig();
-        cout << "DECK TEST\n";
+        //cout << "DECK TEST\n";
         for(int i = 0; i < 52; i++){
             MainCard test = game.getMainDeck().draw();
             //cout << "Color: " << test.getColorName() << " Number: " << test.getNumber() << endl;
@@ -33,7 +33,15 @@ int main(){
         
         while(!game.checkPlayersScore()){
             cout << "Sisa kartu pada deck: " << game.getMainDeck().getSize() << endl;
-            game.startNextTurn();
+            bool flag = true;
+            while(flag){
+                try{
+                    game.startNextTurn();
+                    flag = false;
+                }catch(InvalidChoiceException err){
+                    cout << err.what() << endl;
+                }
+            }
             if(game.getTurnCount() > 7){
                 cout << "AKHIR RONDE\n";
                 if(game.getRoundCount() == 1){
